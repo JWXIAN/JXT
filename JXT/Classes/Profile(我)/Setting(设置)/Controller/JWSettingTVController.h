@@ -1,5 +1,5 @@
 //
-//  JWRecordTVController.h
+//  JWSettingTVController.h
 //  JXT
 //
 //  Created by JWX on 15/6/21.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JWRecordTVController : UITableViewController
+@interface JWSettingTVController : UITableViewController
 
 @end

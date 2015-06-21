@@ -12,6 +12,7 @@
 #import "AFNetworking.h"
 #import "JiaxiaotongAPI.h"
 #import "JsonPaser.h"
+#import "JWSettingTVController.h"
 #import "JWTableViewControllerTest.h"
 
 @interface JWProfileTVController ()
@@ -33,7 +34,7 @@
 
 - (void)setting
 {
-    JWTableViewControllerTest *test1 = [[JWTableViewControllerTest alloc] init];
+    JWSettingTVController *test1 = [[JWSettingTVController alloc] init];
     test1.title = @"test1";
     [self.navigationController pushViewController:test1 animated:YES];
 }

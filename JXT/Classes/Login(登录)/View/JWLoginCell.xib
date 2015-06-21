@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JWLoginCell">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账号" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hW5-mK-ZiQ">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="16" y="177" width="34" height="21"/>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5s1-6O-flp">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="16" y="236" width="34" height="21"/>
+                    </variation>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请填写密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xsn-Js-VfW">
+                    <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="136" y="232" width="229" height="30"/>
+                    </variation>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHM-on-igJ">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="16" y="206" width="384" height="1"/>
+                    </variation>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UVE-b7-SwI">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="16" y="265" width="384" height="1"/>
+                    </variation>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aO-po-5n7">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <state key="normal" title="登录">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30c-b2-zFs">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="更多">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请填写账号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x7F-bN-7nZ">
+                    <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <rect key="frame" x="136" y="173" width="229" height="30"/>
+                    </variation>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="家校通登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEK-Sh-9TX">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="30c-b2-zFs" secondAttribute="bottom" constant="62" id="3Gm-7s-eko"/>
+                <constraint firstItem="cEK-Sh-9TX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="90" id="7Qo-be-bqt"/>
+                <constraint firstItem="4aO-po-5n7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="Aiu-xw-ouO"/>
+                <constraint firstAttribute="trailing" secondItem="30c-b2-zFs" secondAttribute="trailing" constant="147" id="Isf-br-wa2"/>
+                <constraint firstAttribute="trailing" secondItem="cEK-Sh-9TX" secondAttribute="trailing" constant="90" id="KDa-wJ-CMr"/>
+                <constraint firstItem="30c-b2-zFs" firstAttribute="top" secondItem="4aO-po-5n7" secondAttribute="bottom" constant="334" id="Pvm-Gp-FxY"/>
+                <constraint firstItem="30c-b2-zFs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="147" id="TFH-ap-ZiN"/>
+                <constraint firstItem="cEK-Sh-9TX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="g6x-RY-4Eb"/>
+                <constraint firstAttribute="trailing" secondItem="4aO-po-5n7" secondAttribute="trailing" constant="15" id="ryd-VL-x8e"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="hW5-mK-ZiQ"/>
+                    <exclude reference="5s1-6O-flp"/>
+                    <exclude reference="xsn-Js-VfW"/>
+                    <exclude reference="GHM-on-igJ"/>
+                    <exclude reference="UVE-b7-SwI"/>
+                    <exclude reference="4aO-po-5n7"/>
+                    <exclude reference="30c-b2-zFs"/>
+                    <exclude reference="x7F-bN-7nZ"/>
+                    <exclude reference="cEK-Sh-9TX"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="7Qo-be-bqt"/>
+                    <exclude reference="KDa-wJ-CMr"/>
+                    <exclude reference="g6x-RY-4Eb"/>
+                    <exclude reference="Aiu-xw-ouO"/>
+                    <exclude reference="ryd-VL-x8e"/>
+                    <exclude reference="3Gm-7s-eko"/>
+                    <exclude reference="Isf-br-wa2"/>
+                    <exclude reference="Pvm-Gp-FxY"/>
+                    <exclude reference="TFH-ap-ZiN"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="hW5-mK-ZiQ"/>
+                    <include reference="5s1-6O-flp"/>
+                    <include reference="xsn-Js-VfW"/>
+                    <include reference="GHM-on-igJ"/>
+                    <include reference="UVE-b7-SwI"/>
+                    <include reference="4aO-po-5n7"/>
+                    <include reference="30c-b2-zFs"/>
+                    <include reference="x7F-bN-7nZ"/>
+                    <include reference="cEK-Sh-9TX"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="7Qo-be-bqt"/>
+                    <include reference="KDa-wJ-CMr"/>
+                    <include reference="g6x-RY-4Eb"/>
+                    <include reference="Aiu-xw-ouO"/>
+                    <include reference="ryd-VL-x8e"/>
+                    <include reference="3Gm-7s-eko"/>
+                    <include reference="Isf-br-wa2"/>
+                    <include reference="Pvm-Gp-FxY"/>
+                    <include reference="TFH-ap-ZiN"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>
