@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  JWVehicleTVController.h
 //  JXT
 //
 //  Created by 李莉 on 15/6/19.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface JWVehicleTVController : UITableViewController
 
 @end
-
