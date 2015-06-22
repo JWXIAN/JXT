@@ -81,7 +81,7 @@
 		7F8CF8EA1B357E4800293EF0 /* JWProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8CF8E91B357E4800293EF0 /* JWProfileModel.m */; };
 		7F8CF8F31B35844200293EF0 /* JiaxiaotongAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8CF8F01B35844200293EF0 /* JiaxiaotongAPI.m */; };
 		7F8CF8F41B35844200293EF0 /* JsonPaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8CF8F21B35844200293EF0 /* JsonPaser.m */; };
-		7F8CF8F71B3588AD00293EF0 /* JWProfileTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8CF8F61B3588AD00293EF0 /* JWProfileTVController.m */; };
+		7FEAAE871B3819A800E67E92 /* JWProfileTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAAE861B3819A800E67E92 /* JWProfileTVController.m */; };
 		7FEED8E81B36D27700168942 /* DZNSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEED8E51B36D27700168942 /* DZNSegmentedControl.m */; };
 		7FEED8EE1B36D7C300168942 /* JWRecordTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEED8ED1B36D7C300168942 /* JWRecordTVController.m */; };
 		7FEED8F21B370AA300168942 /* JWLoginCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEED8F01B370AA300168942 /* JWLoginCell.m */; };
@@ -250,8 +250,8 @@
 		7F8CF8F01B35844200293EF0 /* JiaxiaotongAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaxiaotongAPI.m; sourceTree = "<group>"; };
 		7F8CF8F11B35844200293EF0 /* JsonPaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonPaser.h; sourceTree = "<group>"; };
 		7F8CF8F21B35844200293EF0 /* JsonPaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonPaser.m; sourceTree = "<group>"; };
-		7F8CF8F51B3588AD00293EF0 /* JWProfileTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWProfileTVController.h; sourceTree = "<group>"; };
-		7F8CF8F61B3588AD00293EF0 /* JWProfileTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWProfileTVController.m; sourceTree = "<group>"; };
+		7FEAAE851B3819A800E67E92 /* JWProfileTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWProfileTVController.h; sourceTree = "<group>"; };
+		7FEAAE861B3819A800E67E92 /* JWProfileTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWProfileTVController.m; sourceTree = "<group>"; };
 		7FEED8E41B36D27700168942 /* DZNSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNSegmentedControl.h; sourceTree = "<group>"; };
 		7FEED8E51B36D27700168942 /* DZNSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZNSegmentedControl.m; sourceTree = "<group>"; };
 		7FEED8EC1B36D7C300168942 /* JWRecordTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWRecordTVController.h; sourceTree = "<group>"; };
@@ -512,8 +512,8 @@
 		00759A911B33B8F3002B1A22 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7F8CF8F51B3588AD00293EF0 /* JWProfileTVController.h */,
-				7F8CF8F61B3588AD00293EF0 /* JWProfileTVController.m */,
+				7FEAAE851B3819A800E67E92 /* JWProfileTVController.h */,
+				7FEAAE861B3819A800E67E92 /* JWProfileTVController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1042,6 +1042,7 @@
 				7F7513C81B34463E00C7863F /* UIButton+WebCache.m in Sources */,
 				00759AA11B33C12A002B1A22 /* JWTarBarController.m in Sources */,
 				7F7513EA1B34468B00C7863F /* NSObject+MJKeyValue.m in Sources */,
+				7FEAAE871B3819A800E67E92 /* JWProfileTVController.m in Sources */,
 				7F7513CB1B34463E00C7863F /* UIImage+WebP.m in Sources */,
 				7FEED8EE1B36D7C300168942 /* JWRecordTVController.m in Sources */,
 				7F7514C01B3446BF00C7863F /* MJRefreshBackStateFooter.m in Sources */,
@@ -1076,7 +1077,6 @@
 				7F7513991B34460000C7863F /* AFURLConnectionOperation.m in Sources */,
 				7F7513E51B34468B00C7863F /* MJConst.m in Sources */,
 				7F7514C51B3446BF00C7863F /* MJRefreshConst.m in Sources */,
-				7F8CF8F71B3588AD00293EF0 /* JWProfileTVController.m in Sources */,
 				7F7513951B34460000C7863F /* AFHTTPRequestOperationManager.m in Sources */,
 				00759A991B33B8F3002B1A22 /* AppDelegate.m in Sources */,
 				7F7513EB1B34468B00C7863F /* NSObject+MJProperty.m in Sources */,

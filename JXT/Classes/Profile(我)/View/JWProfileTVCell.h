@@ -11,13 +11,10 @@
 
 @interface JWProfileTVCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *imagePerson;
-
 @property (weak, nonatomic) IBOutlet UILabel *lableName;
 
 @property (weak, nonatomic) IBOutlet UILabel *lableNo;
 
-@property (weak, nonatomic) IBOutlet UILabel *lableText;
 
 //用户信息 数据模型
 @property (nonatomic,strong)JWProfileModel *userInfo;

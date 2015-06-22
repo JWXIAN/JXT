@@ -8,6 +8,10 @@
 
 #import "JWProfileTVCell.h"
 #import "JWProfileModel.h"
+#import "JsonPaser.h"
+#import "JWProfileModel.h"
+#import "JiaxiaotongAPI.h"
+#import "UIImageView+WebCache.h"
 
 @implementation JWProfileTVCell
 
@@ -24,18 +28,41 @@
         // 从XIB加载自定义视图
         cell = [[[NSBundle mainBundle] loadNibNamed:@"JWProfileTVCell" owner:nil options:nil] lastObject];
     }
-    
     return cell;
 }
 
 - (void)setUserInfo:(JWProfileModel *)userInfo
 {
     // setter方法中，第一句要赋值，否则要在其他方法中使用模型，将无法访问到
-    _userInfo = userInfo;
+     _userInfo = userInfo;
 //    self.imagePerson.image = [UIImage im];
-    self.lableName.text = userInfo.per_name;
-    self.lableNo.text = userInfo.train_learnid;
-    self.lableText.text = userInfo.out_bushi;
+//    self.lableName.text = userInfo.per_name;
+//    self.lableNo.text = userInfo.train_learnid;
+//    self.lableText.text = userInfo.out_bushi;
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [ud objectForKey:@"per_idcardno"];
+    [JiaxiaotongAPI requestUserInfoByUserID:uid andCallback:^(id obj) {
+        JWProfileModel *userInfo =  (JWProfileModel *)obj;
+        self.lableName.text = userInfo.per_name;
+        self.lableNo.text = userInfo.train_learnid;
+        [self.imageView sd_setImageWithURL:[NSURL URLWithString:userInfo.per_photo]];
+        
+    }];
+}
+
+#pragma mark - 模板提供的方法
+/**
+ 初始化方法
+ 
+ 使用代码创建Cell的时候会被调用，如果使用XIB或者Storyboard，此方法不会被调用
+ */
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        NSLog(@"%s", __func__);
+    }
+    return self;
 }
 
 /**
@@ -50,10 +77,15 @@
  
  如果是自定义Cell控件，所有的子控件都应该添加到contentView中
  */
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    
+    if (selected) {
+        self.contentView.backgroundColor = [UIColor redColor];
+    } else {
+        self.contentView.backgroundColor = [UIColor greenColor];
+    }
 }
 
 @end

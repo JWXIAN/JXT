@@ -2,18 +2,12 @@
 //  JWProfileTVController.m
 //  JXT
 //
-//  Created by JWX on 15/6/20.
+//  Created by JWX on 15/6/22.
 //  Copyright (c) 2015年 JW. All rights reserved.
 //
 
 #import "JWProfileTVController.h"
-#import "JWProfileModel.h"
 #import "JWProfileTVCell.h"
-#import "AFNetworking.h"
-#import "JiaxiaotongAPI.h"
-#import "JsonPaser.h"
-#import "JWSettingTVController.h"
-#import "JWTableViewControllerTest.h"
 
 @interface JWProfileTVController ()
 
@@ -21,10 +15,31 @@
 
 @implementation JWProfileTVController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:0 target:self action:@selector(setting)];
+    
+//    self.tableView.rowHeight = 80;
+    
+    // 调整边距，可以让表格视图让开状态栏
+    self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+    
+    // footerView
+    // footerView的宽度会和表格整体宽度一致，只需要指定高度即可
+    //    self.tableView.tableFooterView = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    //    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
+    //    view.backgroundColor = [UIColor redColor];
+    //    self.tableView.tableFooterView = view;
+    // 从XIB加载最后一个视图设置为footerView
+    // 视图控制器成为footerView的代理
+    
+    self.tableView.tableFooterView = [[[NSBundle mainBundle] loadNibNamed:@"JWProfileTVCell" owner:nil options:nil] lastObject];
+}
+
+- (void)setting
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,49 +47,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setting
-{
-    JWSettingTVController *test1 = [[JWSettingTVController alloc] init];
-    test1.title = @"test1";
-    [self.navigationController pushViewController:test1 animated:YES];
-}
-
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 2;
-}
-
-#pragma mark - 数据源方法
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 10;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"test-message-%ld", indexPath.row];
-    
-    return cell;
-}
-
-#pragma mark - 代理方法
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    JWTableViewControllerTest *test1 = [[JWTableViewControllerTest alloc] init];
-    test1.title = @"测试1控制器";
-    // 当test1控制器被push的时候，test1所在的tabbarcontroller的tabbar会自动隐藏
-    // 当test1控制器被pop的时候，test1所在的tabbarcontroller的tabbar会自动显示
-    //    test1.hidesBottomBarWhenPushed = YES;
-    
-    // self.navigationController === HWNavigationController
-    [self.navigationController pushViewController:test1 animated:YES];
-}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    // 1. 创建cell
+//    HMTgCell *cell = [HMTgCell cellWithTableView:tableView];
+//    
+//    // 2. 通过数据模型，设置Cell内容，可以让视图控制器不需要了解cell内部的实现细节
+//    cell.tg = self.tgs[indexPath.row];
+//    
+//    return cell;
+//}
 
 @end

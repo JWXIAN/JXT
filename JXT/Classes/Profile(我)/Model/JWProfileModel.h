@@ -34,11 +34,17 @@
 @property (nonatomic,copy)NSString *out_zongshi;                //学时总时长
 @property (nonatomic,copy)NSString *yixueshi;                   //   ???
 
-//@property (nonatomic, strong) NSMutableArray *profiles;
+@property (nonatomic, strong) NSMutableArray *profiles;
 
 //- (instancetype)initWithDict:(NSDictionary *)dict;
 //+ (instancetype)profileWithDict:(NSDictionary *)dict;
 //
-+ (NSMutableArray *)profiles;
+//+ (NSMutableArray *)profiles;
+
+//-(instancetype)initWithHeaderTitle:(NSString *)headerTitle
+//                    andContentText:(NSString *)contentText
+//                    andCurrentTime:(NSString *)currentTime;
+//
+//+(NSArray *)contentInfos;
 
 @end

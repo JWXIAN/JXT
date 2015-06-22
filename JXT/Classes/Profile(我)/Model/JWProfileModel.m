@@ -7,32 +7,15 @@
 //
 
 #import "JWProfileModel.h"
-#import "JiaxiaotongAPI.h"
 
 @implementation JWProfileModel
-//- (instancetype)initWithDict:(NSDictionary *)dict
-//{
-//    self = [super init];
-//    if (self) {
-//        [self setValuesForKeysWithDictionary:dict];
-//    }
-//    return self;
-//}
-//
-//+ (instancetype)profileWithDict:(NSDictionary *)dict
-//{
-//    return [[self alloc] initWithDict:dict];
-//}
-//
-//+ (NSMutableArray *)profiles
-//{
-//    NSArray *array = [NSArray arrayWithObjects:@"per_name", @"train_learnid", @"out_bushi", nil];
-//    
-//    NSMutableArray *arrayM = [NSMutableArray array];
-//    for (NSDictionary *dict in array) {
-//        [arrayM addObject:[self profileWithDict:dict]];
-//    }
-//    
-//    return arrayM;
-//}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.profiles = [NSMutableArray array];
+    }
+    return self;
+}
 @end

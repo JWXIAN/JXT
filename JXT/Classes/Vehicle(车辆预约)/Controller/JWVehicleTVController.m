@@ -46,7 +46,10 @@
     [super loadView];
     
     //    self.title = @"DZNSegmentedControl";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSegment:)];
+    //添加
+//  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSegment:)];
+    
+    //刷新
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshSegments:)];
 }
 
@@ -100,11 +103,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //创建可重用标识符
+    static NSString *ID = @"Cell";
+    //从缓冲池取出
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
         cell.textLabel.textColor = [UIColor darkGrayColor];
     }
     
@@ -115,7 +120,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50.0;
+    return 45.0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -140,14 +145,14 @@
 
 #pragma mark - ViewController Methods
 
-/**右侧添加cell*/
-- (void)addSegment:(id)sender
-{
-    NSUInteger newSegment = self.control.numberOfSegments;
-    
-    [self.control setTitle:[@"JWX" uppercaseString] forSegmentAtIndex:self.control.numberOfSegments];
-    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:newSegment];
-}
+///**右侧添加cell*/
+//- (void)addSegment:(id)sender
+//{
+//    NSUInteger newSegment = self.control.numberOfSegments;
+//    
+//    [self.control setTitle:[@"JWX" uppercaseString] forSegmentAtIndex:self.control.numberOfSegments];
+//    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:newSegment];
+//}
 
 /**左侧刷新cell*/
 - (void)refreshSegments:(id)sender

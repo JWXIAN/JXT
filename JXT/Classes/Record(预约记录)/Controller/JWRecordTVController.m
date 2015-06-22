@@ -45,7 +45,9 @@
     [super loadView];
     
 //    self.title = @"DZNSegmentedControl";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSegment:)];
+//    //右侧添加bar
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSegment:)];
+    //左侧刷新bar
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshSegments:)];
 }
 
@@ -99,11 +101,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *ID = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
         cell.textLabel.textColor = [UIColor darkGrayColor];
     }
     
@@ -114,7 +116,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50.0;
+    return 45.0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -132,14 +134,14 @@
 
 #pragma mark - ViewController Methods
 
-/**右侧添加cell*/
-- (void)addSegment:(id)sender
-{
-    NSUInteger newSegment = self.control.numberOfSegments;
-    
-    [self.control setTitle:[@"Favorites" uppercaseString] forSegmentAtIndex:self.control.numberOfSegments];
-    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:newSegment];
-}
+///**右侧添加cell*/
+//- (void)addSegment:(id)sender
+//{
+//    NSUInteger newSegment = self.control.numberOfSegments;
+//    
+//    [self.control setTitle:[@"Favorites" uppercaseString] forSegmentAtIndex:self.control.numberOfSegments];
+//    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:newSegment];
+//}
 
 /**左侧刷新cell*/
 - (void)refreshSegments:(id)sender

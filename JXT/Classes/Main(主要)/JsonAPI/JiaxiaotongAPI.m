@@ -26,7 +26,8 @@
 //    
 //    NSString *str = @"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx";
    
-    NSString *path = @"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx?methodName=queryStudentInfo&xmlStr=<?xml version=\"1.0\" encoding=\"utf-8\" ?><MAP_TO_XML><schoolId>00012</schoolId><accountId>130104198810121215</accountId><methodName>queryStudentInfo</methodName></MAP_TO_XML>";
+//    NSString *path = @"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx?methodName=queryStudentInfo&xmlStr=<?xml version=\"1.0\" encoding=\"utf-8\" ?><MAP_TO_XML><schoolId>00012</schoolId><accountId>130104198810121215</accountId><methodName>queryStudentInfo</methodName></MAP_TO_XML>";
+    NSString *path = @"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx?methodName=queryStudentInfo&xmlStr=<?xml version=\"1.0\" encoding=\"utf-8\" ?><MAP_TO_XML><schoolId>12345</schoolId><accountId>130104198810121215</accountId><methodName>queryStudentInfo</methodName></MAP_TO_XML>";
    
     path =[path stringByReplacingOccurrencesOfString:@"<" withString:@"%3C"];
     path =[path stringByReplacingOccurrencesOfString:@" " withString:@"%20"];

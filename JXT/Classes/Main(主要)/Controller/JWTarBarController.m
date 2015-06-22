@@ -7,7 +7,6 @@
 //
 
 #import "JWTarBarController.h"
-#import "JWProfileTVController.h"
 #import "JWRecordTVController.h"
 #import "JWTarBarController.h"
 #import "JWHomeTVController.h"
@@ -15,6 +14,7 @@
 #import "JWNavController.h"
 #import "PrefixHeader.pch"
 #import "JWDLTVController.h"
+#import "JWProfileTVController.h"
 
 @interface JWTarBarController ()
 
