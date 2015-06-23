@@ -15,9 +15,9 @@
 #import "PrefixHeader.pch"
 #import "JWDLTVController.h"
 #import "JWProfileTVController.h"
+#import "MJExtension.h"
 
 @interface JWTarBarController ()
-
 @end
 
 @implementation JWTarBarController
@@ -26,16 +26,16 @@
     [super viewDidLoad];
     // 1.初始化子控制器
     JWHomeTVController *home = [[JWHomeTVController alloc] init];
-    [self addChildVc:home title:@"首页" image:@"tabbar_home" selectedImage:@""];
+    [self addChildVc:home title:@"我的信息" image:@"tabbar_profile" selectedImage:nil];
     
     JWVehicleTVController *messageCenter = [[JWVehicleTVController alloc] init];
-    [self addChildVc:messageCenter title:@"车辆预约" image:@"tabbar_message_center" selectedImage:@""];
+    [self addChildVc:messageCenter title:@"车辆预约" image:@"tabbar_message_center" selectedImage:nil];
     
     JWRecordTVController *discover = [[JWRecordTVController alloc] init];
-    [self addChildVc:discover title:@"预约记录" image:@"tabbar_discover" selectedImage:@""];
+    [self addChildVc:discover title:@"预约记录" image:@"tabbar_discover" selectedImage:nil];
     
-    JWProfileTVController *profile = [[JWProfileTVController alloc] init];
-    [self addChildVc:profile title:@"我" image:@"tabbar_profile" selectedImage:@""];
+    JWProfileTVController *setting = [[JWProfileTVController alloc] init];
+    [self addChildVc:setting title:@"设置" image:@"tabbar_home" selectedImage:nil];
     
 //    JWDLTVController *drive = [[JWDLTVController alloc] init];
 //    [self addChildVc:drive title:@"驾校列表" image:@"tabbar_profile" selectedImage:@
@@ -59,6 +59,7 @@
      错误信息：Changing the delegate of a tab bar managed by a tab bar controller is not allowed.
      错误意思：不允许修改TabBar的delegate属性(这个TabBar是被TabBarViewController所管理的)
      */
+
 }
 
 - (void)didReceiveMemoryWarning {

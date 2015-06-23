@@ -10,8 +10,8 @@
 #import "JiaxiaotongAPI.h"
 #import "AFNetworking.h"
 #import "JsonPaser.h"
-#import "JWProfileModel.h"
 #import "JWDriveBodyModel.h"
+#import "MJExtension.h"
 
 
 @implementation JiaxiaotongAPI
@@ -48,7 +48,7 @@
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
         JWProfileModel *userInfo = [JsonPaser parserUserInfoByDictionary:dic];
         callback(userInfo);
-        NSLog(@"%@", userInfo.class);
+//        NSLog(@"%@", userInfo.class);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"发送请求学员信息失败");
     }];

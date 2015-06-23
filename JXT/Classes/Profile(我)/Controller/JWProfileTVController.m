@@ -8,9 +8,10 @@
 
 #import "JWProfileTVController.h"
 #import "JWProfileTVCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface JWProfileTVController ()
-
+//@property (nonatomic, strong) NSMutableArray *profiles;
 @end
 
 @implementation JWProfileTVController
@@ -18,29 +19,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:0 target:self action:@selector(setting)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:0 target:self action:@selector(setting)];
     
-//    self.tableView.rowHeight = 80;
+//    self.tableView.rowHeight = 100;
+//    
+//    // 调整边距，可以让表格视图让开状态栏
+//    self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
     
-    // 调整边距，可以让表格视图让开状态栏
-    self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
-    
-    // footerView
-    // footerView的宽度会和表格整体宽度一致，只需要指定高度即可
-    //    self.tableView.tableFooterView = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    //    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
-    //    view.backgroundColor = [UIColor redColor];
-    //    self.tableView.tableFooterView = view;
-    // 从XIB加载最后一个视图设置为footerView
-    // 视图控制器成为footerView的代理
-    
-    self.tableView.tableFooterView = [[[NSBundle mainBundle] loadNibNamed:@"JWProfileTVCell" owner:nil options:nil] lastObject];
+//     footerView
+//     footerView的宽度会和表格整体宽度一致，只需要指定高度即可
+//        self.tableView.tableFooterView = [UIButton buttonWithType:UIButtonTypeContactAdd];
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 44)];
+//        view.backgroundColor = [UIColor redColor];
+//        self.tableView.tableFooterView = view;
+//     从XIB加载最后一个视图设置为footerView
+//     视图控制器成为footerView的代理
+//    self.tableView = [[[NSBundle mainBundle] loadNibNamed:@"JWProfileTVCell" owner:nil options:nil] lastObject];
+//    [self.tableView reloadData];
 }
 
-- (void)setting
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    
+    return 1;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -50,11 +52,11 @@
 //- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 //{
 //    // 1. 创建cell
-//    HMTgCell *cell = [HMTgCell cellWithTableView:tableView];
+//    JWProfileTVCell *cell = [JWProfileTVCell cellWithTableView:tableView];
 //    
-//    // 2. 通过数据模型，设置Cell内容，可以让视图控制器不需要了解cell内部的实现细节
-//    cell.tg = self.tgs[indexPath.row];
-//    
+//    cell.imagePhoto.image = [UIImage imageNamed:@"tabbar_compose_button_highlighted"];
+////     2. 通过数据模型，设置Cell内容，可以让视图控制器不需要了解cell内部的实现细节
+////    cell.userInfo = self.profiles[indexPath.row];
 //    return cell;
 //}
 

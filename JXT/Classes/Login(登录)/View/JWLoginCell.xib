@@ -51,14 +51,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UVE-b7-SwI">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                    <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
                         <rect key="frame" x="16" y="265" width="384" height="1"/>
                     </variation>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aO-po-5n7">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aO-po-5n7">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <state key="normal" title="登录">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30c-b2-zFs">
@@ -95,6 +95,7 @@
                 <constraint firstItem="30c-b2-zFs" firstAttribute="top" secondItem="4aO-po-5n7" secondAttribute="bottom" constant="334" id="Pvm-Gp-FxY"/>
                 <constraint firstItem="30c-b2-zFs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="147" id="TFH-ap-ZiN"/>
                 <constraint firstItem="cEK-Sh-9TX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="g6x-RY-4Eb"/>
+                <constraint firstItem="4aO-po-5n7" firstAttribute="top" secondItem="UVE-b7-SwI" secondAttribute="bottom" constant="72" id="mWX-JH-pgu"/>
                 <constraint firstAttribute="trailing" secondItem="4aO-po-5n7" secondAttribute="trailing" constant="15" id="ryd-VL-x8e"/>
             </constraints>
             <variation key="default">
@@ -114,6 +115,7 @@
                     <exclude reference="KDa-wJ-CMr"/>
                     <exclude reference="g6x-RY-4Eb"/>
                     <exclude reference="Aiu-xw-ouO"/>
+                    <exclude reference="mWX-JH-pgu"/>
                     <exclude reference="ryd-VL-x8e"/>
                     <exclude reference="3Gm-7s-eko"/>
                     <exclude reference="Isf-br-wa2"/>
@@ -138,6 +140,7 @@
                     <include reference="KDa-wJ-CMr"/>
                     <include reference="g6x-RY-4Eb"/>
                     <include reference="Aiu-xw-ouO"/>
+                    <include reference="mWX-JH-pgu"/>
                     <include reference="ryd-VL-x8e"/>
                     <include reference="3Gm-7s-eko"/>
                     <include reference="Isf-br-wa2"/>

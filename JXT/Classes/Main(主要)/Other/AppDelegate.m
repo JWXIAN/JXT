@@ -10,6 +10,7 @@
 #import "JWTarBarController.h"
 #import "JWDLTVController.h"
 #import "JWDLTVController.h"
+#import "JWDLTVController.h"
 
 @interface AppDelegate ()
 
@@ -24,7 +25,7 @@
     self.window.frame = [UIScreen mainScreen].bounds;
     
     // 2.设置根控制器
-    self.window.rootViewController = [[JWTarBarController alloc] init];
+    self.window.rootViewController = [[JWDLTVController alloc] init];
     //    NSString *key = @"CFBundleVersion";
     //    // 上一次的使用版本（存储在沙盒中的版本号）
     //    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];

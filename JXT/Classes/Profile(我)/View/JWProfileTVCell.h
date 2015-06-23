@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *lableNo;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imagePhoto;
 
 //用户信息 数据模型
 @property (nonatomic,strong)JWProfileModel *userInfo;

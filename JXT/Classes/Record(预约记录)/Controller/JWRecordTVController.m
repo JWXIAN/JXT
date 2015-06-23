@@ -59,7 +59,6 @@
     
     self.tableView.tableHeaderView = self.control;
     self.tableView.tableFooterView = [UIView new];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated

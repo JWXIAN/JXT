@@ -1,15 +1,14 @@
 //
-//  JWProfileModel.h
+//  JWProfileTVModel.h
 //  JXT
 //
-//  Created by JWX on 15/6/20.
+//  Created by JWX on 15/6/23.
 //  Copyright (c) 2015年 JW. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface JWProfileModel : NSObject
-
+@interface JWProfileTVModel : UITableViewController
 @property (nonatomic,assign)BOOL issuccess;                     //是否成功
 @property (nonatomic,copy)NSString *statecode;                  // 状态码 ???
 @property (nonatomic,copy)NSString *stateinfo;                  //  状态信息 ???
@@ -35,16 +34,4 @@
 @property (nonatomic,copy)NSString *yixueshi;                   //   ???
 
 @property (nonatomic, strong) NSMutableArray *profiles;
-
-//- (instancetype)initWithDict:(NSDictionary *)dict;
-//+ (instancetype)profileWithDict:(NSDictionary *)dict;
-//
-//+ (NSMutableArray *)profiles;
-
-//-(instancetype)initWithHeaderTitle:(NSString *)headerTitle
-//                    andContentText:(NSString *)contentText
-//                    andCurrentTime:(NSString *)currentTime;
-//
-//+(NSArray *)contentInfos;
-
 @end

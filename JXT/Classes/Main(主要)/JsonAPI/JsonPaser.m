@@ -7,42 +7,41 @@
 //
 
 #import "JsonPaser.h"
-#import "JWProfileModel.h"
 #import "JWDriveBodyModel.h"
 #import "JWDriveHeadModel.h"
 
 @implementation JsonPaser
 
-+(JWProfileModel *)parserUserInfoByDictionary:(NSDictionary *)dic{
-   
-    JWProfileModel *stu = [[JWProfileModel alloc]init];
-    
-    NSDictionary *head = [dic objectForKey:@"head"];
-    stu.issuccess = [head objectForKey:@"issuccess"];
-    stu.statecode = [head objectForKey:@"statecode"];
-    stu.stateinfo = [head objectForKey:@"stateinfo"];
-    
-    NSDictionary *body = [dic objectForKey:@"body"];
-    NSDictionary *person = [body objectForKey:@"person"];
-    stu.part_registrationdate = [person objectForKey:@"part_registrationdate"];
-    stu.per_e_mail = [person objectForKey:@"per_e_mail"];
-    stu.per_id = [person objectForKey:@"per_id"];
-    stu.per_idcardno = [person objectForKey:@"per_idcardno"];
-    stu.per_mobile = [person objectForKey:@"per_mobile"];
-    stu.per_name = [person objectForKey:@"per_name"];
-    stu.per_password = [person objectForKey:@"per_password"];
-    stu.per_photo = [person objectForKey:@"per_photo"];
-    stu.per_sex = [person objectForKey:@"per_sex"];
-    
-    NSDictionary *out_result = [body objectForKey:@"out_result"];
-    stu.out_bushi = [out_result objectForKey:@"out_bushi"];
-    stu.out_ddate = [out_result objectForKey:@"out_ddate"];
-    stu.out_isweiyue = [out_result objectForKey:@"out_isweiyue"];
-    stu.out_shengyu = [out_result objectForKey:@"out_shengyu"];
-    stu.out_zongshi = [out_result objectForKey:@"out_zongshi"];
-    stu.yixueshi = [out_result objectForKey:@"out_yixueshi"];
-    return stu;
-}
+//+(JWProfileModel *)parserUserInfoByDictionary:(NSDictionary *)dic{
+//   
+//    JWProfileModel *stu = [[JWProfileModel alloc]init];
+//    
+//    NSDictionary *head = [dic objectForKey:@"head"];
+//    stu.issuccess = [head objectForKey:@"issuccess"];
+//    stu.statecode = [head objectForKey:@"statecode"];
+//    stu.stateinfo = [head objectForKey:@"stateinfo"];
+//    
+//    NSDictionary *body = [dic objectForKey:@"body"];
+//    NSDictionary *person = [body objectForKey:@"person"];
+//    stu.part_registrationdate = [person objectForKey:@"part_registrationdate"];
+//    stu.per_e_mail = [person objectForKey:@"per_e_mail"];
+//    stu.per_id = [person objectForKey:@"per_id"];
+//    stu.per_idcardno = [person objectForKey:@"per_idcardno"];
+//    stu.per_mobile = [person objectForKey:@"per_mobile"];
+//    stu.per_name = [person objectForKey:@"per_name"];
+//    stu.per_password = [person objectForKey:@"per_password"];
+//    stu.per_photo = [person objectForKey:@"per_photo"];
+//    stu.per_sex = [person objectForKey:@"per_sex"];
+//    
+//    NSDictionary *out_result = [body objectForKey:@"out_result"];
+//    stu.out_bushi = [out_result objectForKey:@"out_bushi"];
+//    stu.out_ddate = [out_result objectForKey:@"out_ddate"];
+//    stu.out_isweiyue = [out_result objectForKey:@"out_isweiyue"];
+//    stu.out_shengyu = [out_result objectForKey:@"out_shengyu"];
+//    stu.out_zongshi = [out_result objectForKey:@"out_zongshi"];
+//    stu.yixueshi = [out_result objectForKey:@"out_yixueshi"];
+//    return stu;
+//}
 +(JWDriveHeadModel *)parserDriveInfoByDictionary:(NSDictionary *)dic{
     JWDriveHeadModel *drive = [[JWDriveHeadModel alloc]init];
     
