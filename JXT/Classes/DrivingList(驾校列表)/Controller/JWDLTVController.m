@@ -13,7 +13,10 @@
 #import "JWDriveBodyModel.h"
 #import "JWDriveHeadModel.h"
 #import "JWDLTVCell.h"
+#import "JWTarBarController.h"
+#import "MBProgressHUD+MJ.h"
 #import "JWLoginController.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface JWDLTVController ()
 @property (nonatomic,strong)NSMutableArray *driveHeads;
@@ -23,21 +26,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title = @"驾校列表";
-    self.driveHeads = [NSMutableArray array];
+//    self.title = @"驾校列表";
     self.tableView.rowHeight = 110;
     self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    NSString *uid = [ud objectForKey:@"driveID"];
-    [JiaxiaotongAPI requestDriveByDriveID:uid andCallback:^(id obj) {
-        JWDriveHeadModel *drive = (JWDriveHeadModel *)obj;
-        self.driveHeads = drive.driveHeads;
-        [self.tableView reloadData];
-        
-    }];
-    
-    
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +37,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)loadData
+{
+    self.driveHeads = [NSMutableArray array];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [ud objectForKey:@"driveID"];
+    [JiaxiaotongAPI requestDriveByDriveID:uid andCallback:^(id obj) {
+        JWDriveHeadModel *drive = (JWDriveHeadModel *)obj;
+        self.driveHeads = drive.driveHeads;
+        [self.tableView reloadData];
+    }];
+    
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -65,20 +69,21 @@
     return cell;
 }
 
-////选择后跳转到登陆页面 将驾校名传到登陆页面
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    DriveData *driveData = self.driveDatas[indexPath.row];
-//    
-//    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-//    [ud setObject:driveData.qyid forKey:@"drivecode"];
-//    [ud synchronize];
-//    NSLog(@"%@",driveData.qyid);
-//    
-//    JWLoginController *lvc = [self.storyboard instantiateViewControllerWithIdentifier:@"Loginvc"];
-//    lvc.driveData = driveData;
-//    
-//    [self presentViewController:lvc animated:YES completion:nil];
-//    NSLog(@"%ld",(long)indexPath.row);
-//    
-//}
+
+//选择后跳转到登陆页面 将驾校名传到登陆页面
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    JWDriveBodyModel *driveData = self.driveHeads[indexPath.row];
+    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:driveData.qyid forKey:@"drivecode"];
+    [ud synchronize];
+    NSLog(@"%@",driveData.qyid);
+    
+    JWLoginController *tb = [[JWLoginController alloc] init];
+    tb.driveData = driveData;
+//    tb.title = @"学员登录";
+    [self presentViewController:tb animated:YES completion:nil];
+//    [MBProgressHUD showSuccess:@"学员请登录"];
+    
+}
 @end

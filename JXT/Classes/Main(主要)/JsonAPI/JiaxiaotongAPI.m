@@ -11,7 +11,10 @@
 #import "AFNetworking.h"
 #import "JsonPaser.h"
 #import "JWDriveBodyModel.h"
-#import "MJExtension.h"
+#import "MBProgressHUD+MJ.h"
+#import "JWLoginModel.h"
+#import "JWDriveHeadModel.h"
+#import "JWRecordHeadModel.h"
 
 
 @implementation JiaxiaotongAPI
@@ -34,10 +37,10 @@
     path =[path stringByReplacingOccurrencesOfString:@"\"" withString:@"%22"];
     path =[path stringByReplacingOccurrencesOfString:@">" withString:@"%3E"];
    
-    NSArray * fristArray =[path componentsSeparatedByString:@"methodName="];
-    NSString * secondStr = (NSString*)fristArray[0];
-    NSArray * secondArray = [secondStr componentsSeparatedByString:@"&"];
-    NSString * name = (NSString*)secondArray[0];
+    NSArray *fristArray =[path componentsSeparatedByString:@"methodName="];
+    NSString *secondStr = (NSString *)fristArray[0];
+    NSArray *secondArray = [secondStr componentsSeparatedByString:@"&"];
+    NSString *name = (NSString *)secondArray[0];
     
    // NSString *path =  @"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx?methodName=queryStudentInfo&xmlStr=%3C?xml%20version=%221.0%22%20encoding=%22utf-8%22%20?%3E%3CMAP_TO_XML%3E%3CschoolId%3E12345%3C/schoolId%3E%3CaccountId%3E130104198810121215%3C/accountId%3E%3CmethodName%3EqueryStudentInfo%3C/methodName%3E%3C/MAP_TO_XML%3E";
     
@@ -48,16 +51,12 @@
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
         JWProfileModel *userInfo = [JsonPaser parserUserInfoByDictionary:dic];
         callback(userInfo);
-//        NSLog(@"%@", userInfo.class);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"发送请求学员信息失败");
     }];
 }
 //驾校列表
 +(void)requestDriveByDriveID:(NSString *)driveID andCallback:(MyCallback)callback{
     //NSString *path = @"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx?methodName=getSchoolList&xmlStr=%3C?xml%20version=%221.0%22%20encoding=%22utf-8%22%20?%3E%3CMAP_TO_XML%3E%3CpageN%3E11%3C/pageN%3E%3CpageNum%3E0%3C/pageNum%3E%3CjxName%3E%3C/jxName%3E%3Csheng%3E%3C/sheng%3E%3Cshiqu%3E%3C/shiqu%3E%3C/MAP_TO_XML%3E%27%20";
-    
-    
     NSString *path = @"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx?methodName=getSchoolList&xmlStr=<\?xml version=\"1.0\" encoding=\"utf-8\"\?><MAP_TO_XML><pageN>11</pageN><pageNum>0</pageNum><jxName></jxName><sheng></sheng><shiqu></shiqu></MAP_TO_XML>";
     
     path =[path stringByReplacingOccurrencesOfString:@"<" withString:@"%3C"];
@@ -69,13 +68,10 @@
     [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
     [manager GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        JWDriveBodyModel *drive = [JsonPaser parserDriveInfoByDictionary:dic];
+        JWDriveHeadModel *drive = [JsonPaser parserDriveInfoByDictionary:dic];
         callback(drive);
-        NSLog(@"%@", dic);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"发送请求驾校列表失败");
     }];
-    
 }
 ////教练信息
 //+(void)requsetDriTeacherInfoByDriTeaInfo:(NSString *)driTeacherInfo andCallback:(MyCallback)callback{
@@ -129,33 +125,32 @@
 //    }];
 //    
 //}
-////学员登陆
-//+(void)requsetStuLoginByStuLogin:(NSString *)stuLogin andCallback:(MyCallback)callback{
-// 
-//  
-//    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-//    NSString *accountID =[ud objectForKey:@"accountID"];
-//    NSString *password = [ud objectForKey:@"password"];
-//    NSString *schoolID = [ud objectForKey:@"drivecode"];
-//    
-//    NSString *path = [NSString stringWithFormat:@"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx?methodName=studentLogin&xmlStr=<?xml version=\"1.0\" encoding=\"utf-8\" ?><MAP_TO_XML><schoolId>%@</schoolId><accountId>%@</accountId><passWord>%@</passWord><methodName>studentLogin</methodName></MAP_TO_XML>",schoolID,accountID,password];
-//    
-//    path =[path stringByReplacingOccurrencesOfString:@"<" withString:@"%3C"];
-//    path =[path stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-//    path =[path stringByReplacingOccurrencesOfString:@"\"" withString:@"%22"];
-//    path =[path stringByReplacingOccurrencesOfString:@">" withString:@"%3E"];
-//    
-//    AFHTTPRequestOperationManager *manager= [AFHTTPRequestOperationManager manager];
-//    [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
-//    [manager GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-//        StuLogin *stuLogin = [JsonPaser parserStuLoginByDictionary:dic];
-//        callback(stuLogin);
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"发送请求教练信息失败");
-//    }];
-//}
-//
+//学员登陆
++(void)requsetStuLoginByStuLogin:(NSString *)stuLogin andCallback:(MyCallback)callback{
+ 
+  
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *accountID =[ud objectForKey:@"accountID"];
+    NSString *password = [ud objectForKey:@"password"];
+    NSString *schoolID = [ud objectForKey:@"drivecode"];
+    NSString *path = [NSString stringWithFormat:@"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx?methodName=studentLogin&xmlStr=<?xml version=\"1.0\" encoding=\"utf-8\" ?><MAP_TO_XML><schoolId>%@</schoolId><accountId>%@</accountId><passWord>%@</passWord><methodName>studentLogin</methodName></MAP_TO_XML>",schoolID,accountID,password];
+    
+    path =[path stringByReplacingOccurrencesOfString:@"<" withString:@"%3C"];
+    path =[path stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    path =[path stringByReplacingOccurrencesOfString:@"\"" withString:@"%22"];
+    path =[path stringByReplacingOccurrencesOfString:@">" withString:@"%3E"];
+    
+    AFHTTPRequestOperationManager *manager= [AFHTTPRequestOperationManager manager];
+    [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
+    [manager GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        JWLoginModel *stuLogin = [JsonPaser parserStuLoginByDictionary:dic];
+        callback(stuLogin);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"发送请求教练信息失败");
+    }];
+}
+
 ////学员考试进度
 //+(void)requestStuExamScheduleByStuExamSchedule:(NSString *)stuExamSchedule andCallback:(MyCallback)callback{
 //
@@ -171,31 +166,31 @@
 //        NSLog(@"发送请求学员考试进度失败");
 //    }];
 //}
-////查询预约记录
-//+(void)requestBookRecordByBookRecord:(NSString *)bookRecord andCallback:(MyCallback)callback{
-//   // NSString *path = @"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx?methodName=queryYuyue&xmlStr=%3C?xml%20version=%221.0%22%20encoding=%22utf-8%22%20?%3E%3CMAP_TO_XML%3E%3CpageN%3E3%3C/pageN%3E%3CpageNum%3E0%3C/pageNum%3E%3CschoolId%3E49267%3C/schoolId%3E%3ClearnID%3E0114040503%3C/learnID%3E%3Cstatus%3E%E9%A2%84%E7%BA%A6%3C/status%3E%3CmethodName%3EqueryYuyue%3C/methodName%3E%3C/MAP_TO_XML%3E";
-//    
-//    NSString *path = @"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx?methodName=queryYuyue&xmlStr=<?xml version=\"1.0\" encoding=\"utf-8\" ?><MAP_TO_XML><pageN>3</pageN><pageNum>0</pageNum><schoolId>49267</schoolId><learnID>0114040503</learnID><status>预约</status><methodName>queryYuyue</methodName></MAP_TO_XML>";
-//    
-//    path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    
-//    path =[path stringByReplacingOccurrencesOfString:@"<" withString:@"%3C"];
-//    path =[path stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-//    path =[path stringByReplacingOccurrencesOfString:@"\"" withString:@"%22"];
-//    path =[path stringByReplacingOccurrencesOfString:@">" withString:@"%3E"];
-//    
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
-//    
-//    [manager GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-//        BookRecord *bookRecord = [JsonPaser parserBookRecordByDictionary:dic];
-//        callback(bookRecord);
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"发送请求查询预约记录失败");
-//    }];
-//
-//}
+//查询预约记录
++(void)requestBookRecordByBookRecord:(NSString *)bookRecord andCallback:(MyCallback)callback{
+   // NSString *path = @"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx?methodName=queryYuyue&xmlStr=%3C?xml%20version=%221.0%22%20encoding=%22utf-8%22%20?%3E%3CMAP_TO_XML%3E%3CpageN%3E3%3C/pageN%3E%3CpageNum%3E0%3C/pageNum%3E%3CschoolId%3E49267%3C/schoolId%3E%3ClearnID%3E0114040503%3C/learnID%3E%3Cstatus%3E%E9%A2%84%E7%BA%A6%3C/status%3E%3CmethodName%3EqueryYuyue%3C/methodName%3E%3C/MAP_TO_XML%3E";
+    
+    NSString *path = @"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx?methodName=queryYuyue&xmlStr=<?xml version=\"1.0\" encoding=\"utf-8\" ?><MAP_TO_XML><pageN>3</pageN><pageNum>0</pageNum><schoolId>49267</schoolId><learnID>0114040503</learnID><status>预约</status><methodName>queryYuyue</methodName></MAP_TO_XML>";
+    
+    path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    path =[path stringByReplacingOccurrencesOfString:@"<" withString:@"%3C"];
+    path =[path stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    path =[path stringByReplacingOccurrencesOfString:@"\"" withString:@"%22"];
+    path =[path stringByReplacingOccurrencesOfString:@">" withString:@"%3E"];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
+    
+    [manager GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        JWRecordHeadModel *bookRecord = [JsonPaser parserBookRecordByDictionary:dic];
+        callback(bookRecord);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"发送请求查询预约记录失败");
+    }];
+
+}
 ////分享
 //+(void)requestShareByShare:(NSString *)share andCallback:(MyCallback)callback{
 //    NSString *path = @"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx?methodName=querySharecontent";

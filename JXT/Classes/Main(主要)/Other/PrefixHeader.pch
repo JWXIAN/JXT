@@ -2,7 +2,7 @@
 //  PrefixHeader.pch
 //  JXT
 //
-//  Created by 李莉 on 15/6/19.
+//  Created by JWX on 15/6/19.
 //  Copyright (c) 2015年 JW. All rights reserved.
 //
 
@@ -13,9 +13,9 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #ifdef DEBUG // 处于开发阶段
-#define HWLog(...) NSLog(__VA_ARGS__)
+#define JWLog(...) NSLog(__VA_ARGS__)
 #else // 处于发布阶段
-#define HWLog(...)
+#define JWLog(...)
 #endif
 
 // RGB颜色

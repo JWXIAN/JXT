@@ -9,13 +9,14 @@
 #import "JWSettingTVController.h"
 
 @interface JWSettingTVController ()
-
+@property (nonatomic,retain) NSMutableArray *cellArray;
 @end
 
 @implementation JWSettingTVController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.cellArray = [NSMutableArray arrayWithObjects: @"分享给朋友", @"意见反馈", @"选择驾校", @"修改密码", @"帮助", @"关于我们", nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -23,15 +24,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 2;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//    return ;
+//}
 
 #pragma mark - 数据源方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return self.cellArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -41,8 +42,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"分享给朋友"];
+    cell = [self.cellArray objectAtIndex:indexPath.row];
     
     return cell;
 }

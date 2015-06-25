@@ -19,12 +19,12 @@ typedef void  (^MyCallback)(id obj);
 //+(void)requsetDriTeacherInfoByDriTeaInfo:(NSString *)driTeacherInfo andCallback:(MyCallback)callback;
 ////教练列表
 //+(void)requestDriTeacherListByDriTeacherList:(NSString *)driTeacherList andCallback:(MyCallback)callback;
-////学员登陆
-//+(void)requsetStuLoginByStuLogin:(NSString *)stuLogin andCallback:(MyCallback)callback;
+//学员登陆
++(void)requsetStuLoginByStuLogin:(NSString *)stuLogin andCallback:(MyCallback)callback;
 ////学生考试进度
 //+(void)requestStuExamScheduleByStuExamSchedule:(NSString *)stuExamSchedule andCallback:(MyCallback)callback;
-////查询预约记录
-//+(void)requestBookRecordByBookRecord:(NSString *)bookRecord andCallback:(MyCallback)callback;
+//查询预约记录
++(void)requestBookRecordByBookRecord:(NSString *)bookRecord andCallback:(MyCallback)callback;
 ////分享
 //+(void)requestShareByShare:(NSString *)share andCallback:(MyCallback)callback;
 ////保存预约信息

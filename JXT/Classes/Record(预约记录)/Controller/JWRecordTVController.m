@@ -9,81 +9,49 @@
 #import "JWRecordTVController.h"
 #import "DZNSegmentedControl.h"
 
+/**Segment define*/
 #define _allowAppearance    NO
 #define _bakgroundColor     [UIColor colorWithRed:0/255.0 green:87/255.0 blue:173/255.0 alpha:1.0]
 #define _tintColor          [UIColor colorWithRed:20/255.0 green:200/255.0 blue:255/255.0 alpha:1.0]
 #define _hairlineColor      [UIColor colorWithRed:0/255.0 green:36/255.0 blue:100/255.0 alpha:1.0]
 
 @interface JWRecordTVController ()<DZNSegmentedControlDelegate>
+/**Segment*/
 @property (nonatomic, strong) DZNSegmentedControl *control;
 @property (nonatomic, strong) NSArray *menuItems;
+
+/**预约记录数据模型*/
+@property (nonatomic,strong)NSMutableArray *recordBodys;
 
 @end
 
 @implementation JWRecordTVController
 
-+ (void)load
-{
-    if (!_allowAppearance) {
-        return;
-    }
-    
-    [[DZNSegmentedControl appearance] setBackgroundColor:_bakgroundColor];
-    [[DZNSegmentedControl appearance] setTintColor:_tintColor];
-    [[DZNSegmentedControl appearance] setHairlineColor:_hairlineColor];
-    
-    [[DZNSegmentedControl appearance] setFont:[UIFont fontWithName:@"EuphemiaUCAS" size:15.0]];
-    [[DZNSegmentedControl appearance] setSelectionIndicatorHeight:2.5];
-    [[DZNSegmentedControl appearance] setAnimationDuration:0.125];
-    
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor darkGrayColor], NSFontAttributeName: [UIFont systemFontOfSize:18.0]}];
-}
-
-/**加载左右侧bar*/
-- (void)loadView
-{
-    [super loadView];
-    
-//    self.title = @"DZNSegmentedControl";
-//    //右侧添加bar
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSegment:)];
-    //左侧刷新bar
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshSegments:)];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    //预约信息分组
     _menuItems = @[[@"全部" uppercaseString], [@"预约" uppercaseString], [@"培训" uppercaseString], [@"退约" uppercaseString]];
-    
     self.tableView.tableHeaderView = self.control;
     self.tableView.tableFooterView = [UIView new];
+    //预约数据显示
+    [self loadRecord];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+/**加载预约信息*/
+- (void)loadRecord
 {
-    [super viewWillAppear:animated];
-    
-    [self updateControlCounts];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (DZNSegmentedControl *)control
-{
-    if (!_control)
-    {
-        _control = [[DZNSegmentedControl alloc] initWithItems:self.menuItems];
-        _control.delegate = self;
-        _control.selectedSegmentIndex = 1;
-        _control.bouncySelectionIndicator = YES;
-        [_control addTarget:self action:@selector(selectedSegment:) forControlEvents:UIControlEventValueChanged];
-    }
-    return _control;
+    //    self.driveDatas = [NSMutableArray array];
+    //    //
+    //    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    //    NSString *uid = [ud objectForKey:@"driveID"];
+    //    [JiaxiaotongAPI requestDriveByDriveID:uid andCallback:^(id obj) {
+    //        Drive *drive = (Drive *)obj;
+    //        self.driveDatas = drive.driveDatas;
+    //        [self.tableView reloadData];
+    //        
+    //    }];
 }
 
 #pragma mark - UITableViewDataSource Methods
@@ -93,11 +61,14 @@
     return 1;
 }
 
+/**返回cell数据行*/
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 20;
 }
 
+
+#pragma mark - 数据源代理方法
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *ID = @"Cell";
@@ -123,6 +94,62 @@
     return 0.0;
 }
 
+
+#pragma mark - Segment分组实现
+/**顶部Segment*/
++ (void)load
+{
+    if (!_allowAppearance) {
+        return;
+    }
+    
+    [[DZNSegmentedControl appearance] setBackgroundColor:_bakgroundColor];
+    [[DZNSegmentedControl appearance] setTintColor:_tintColor];
+    [[DZNSegmentedControl appearance] setHairlineColor:_hairlineColor];
+    
+    [[DZNSegmentedControl appearance] setFont:[UIFont fontWithName:@"EuphemiaUCAS" size:15.0]];
+    [[DZNSegmentedControl appearance] setSelectionIndicatorHeight:2.5];
+    [[DZNSegmentedControl appearance] setAnimationDuration:0.125];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor darkGrayColor], NSFontAttributeName: [UIFont systemFontOfSize:18.0]}];
+}
+
+/**加载左右侧bar*/
+- (void)loadView
+{
+    [super loadView];
+    //    //右侧添加bar
+    //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSegment:)];
+    
+    //左侧刷新bar
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshSegments:)];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self updateControlCounts];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (DZNSegmentedControl *)control
+{
+    if (!_control)
+    {
+        _control = [[DZNSegmentedControl alloc] initWithItems:self.menuItems];
+        _control.delegate = self;
+        _control.selectedSegmentIndex = 1;
+        _control.bouncySelectionIndicator = YES;
+        [_control addTarget:self action:@selector(selectedSegment:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _control;
+}
 
 #pragma mark - UITableViewDelegate Methods
 

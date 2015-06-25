@@ -1,18 +1,14 @@
 //
-//  JWRecordAllModel.h
+//  JWRecordBodyModel.h
 //  JXT
 //
-//  Created by JWX on 15/6/23.
+//  Created by JWX on 15/6/25.
 //  Copyright (c) 2015年 JW. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface JWRecordAllModel : NSObject
-
-@property (nonatomic,copy)NSString *issuccess;                     //是否成功
-@property (nonatomic,copy)NSString *statecode;                  // 状态码 ???
-@property (nonatomic,copy)NSString *stateinfo;                  //  状态信息 ???
+@interface JWRecordBodyModel : NSObject
 
 @property (nonatomic,copy)NSString *per_name;       //学员姓名
 @property (nonatomic,copy)NSString *stuID;          //学员ID
@@ -28,10 +24,5 @@
 @property (nonatomic,copy)NSString *t_yn;           //???
 @property (nonatomic,copy)NSString *jspy;           //???
 @property (nonatomic,copy)NSString *pjzt;           //评价状态
-
-- (instancetype)initWithDict:(NSDictionary *)dict;
-+ (instancetype)recordAllWithDict:(NSDictionary *)dict;
-
-+ (NSArray *)recordAlls;
 
 @end

@@ -9,23 +9,26 @@
 #import <UIKit/UIKit.h>
 @class JWProfileModel;
 @class JWDriveBodyModel;
+@class JWLoginModel;
+@class JWDriveHeadModel;
+@class JWRecordHeadModel;
 
 @interface JsonPaser : NSObject
 
 //解析学员信息
 +(JWProfileModel *)parserUserInfoByDictionary:(NSDictionary *)dic;
-////学员登陆
-//+(StuLogin *)parserStuLoginByDictionary:(NSDictionary *)dic;
+//学员登陆
++(JWLoginModel *)parserStuLoginByDictionary:(NSDictionary *)dic;
 //驾校
-+(JWDriveBodyModel *)parserDriveInfoByDictionary:(NSDictionary *)dic;
++(JWDriveHeadModel *)parserDriveInfoByDictionary:(NSDictionary *)dic;
 ////教练信息
 //+(DriTeacherInfo *)parserDriTeacherInfoByDictionary:(NSDictionary *)dic;
 ////教练列表
 //+(DriTeachersList *)parserDriTeaListByDictionary:(NSDictionary *)dic;
 ////学生考试进度
 //+(ExamSchedule *)parserExamScheduleByDictionary:(NSDictionary *)dic;
-////查询预约记录
-//+(BookRecord *)parserBookRecordByDictionary:(NSDictionary *)dic;
+//查询预约记录
++(JWRecordHeadModel *)parserBookRecordByDictionary:(NSDictionary *)dic;
 ////分享
 //+(Share *)parserShareByDictionary:(NSDictionary *)dic;
 ////保存预约信息

@@ -9,6 +9,10 @@
 #import "JsonPaser.h"
 #import "JWDriveBodyModel.h"
 #import "JWDriveHeadModel.h"
+#import "MBProgressHUD+MJ.h"
+#import "JWLoginModel.h"
+#import "JWRecordHeadModel.h"
+#import "JWRecordBodyModel.h"
 
 @implementation JsonPaser
 
@@ -89,102 +93,102 @@
 //    driTeacherInfo.photo = [body objectForKey:@"photo"];
 //    return driTeacherInfo;
 //}
-////学员登陆
-//+(StuLogin *)parserStuLoginByDictionary:(NSDictionary *)dic{
-//    StuLogin *stuLogin = [[StuLogin alloc]init];
-//    NSDictionary *head = [dic objectForKey:@"head"];
-//        stuLogin.issuccess = [head objectForKey:@"issuccess"];
-//        stuLogin.statecode = [head objectForKey:@"statecode"];
-//        stuLogin.stateinfo = [head objectForKey:@"stateinfo"];
-//    NSDictionary *body = [dic objectForKey:@"body"];
-//        stuLogin.stuID = [body objectForKey:@"id"];
-//        stuLogin.per_id = [body objectForKey:@"per_id"];
-//        stuLogin.per_name = [body objectForKey:@"per_name"];
-//        stuLogin.per_sex = [body objectForKey:@"per_sex"];
-//        stuLogin.per_national = [body objectForKey:@"per_national"];
-//        stuLogin.per_remark = [body objectForKey:@"per_remark"];
-//        stuLogin.per_namecode = [body objectForKey:@"per_namecode"];
-//        stuLogin.per_birthday = [body objectForKey:@"per_birthday"];
-//        stuLogin.per_photopath = [body objectForKey:@"per_photopath"];
-//        stuLogin.per_postcode = [body objectForKey:@"per_postcode"];
-//        stuLogin.per_phone = [body objectForKey:@"per_phone"];
-//        stuLogin.per_mobile = [body objectForKey:@"per_mobile"];
-//        stuLogin.per_e_mail = [body objectForKey:@"per_e_mail"];
-//        stuLogin.per_receivedcard = [body objectForKey:@"per_receivedcard"];
-//        stuLogin.per_password = [body objectForKey:@"per_password"];
-//        stuLogin.per_idcard = [body objectForKey:@"per_idcard"];
-//        stuLogin.per_idcardno = [body objectForKey:@"per_idcardno"];
-//        stuLogin.per_nationality = [body objectForKey:@"per_nationality"];
-//        stuLogin.per_homeaddress = [body objectForKey:@"per_homeaddress"];
-//        stuLogin.per_address = [body objectForKey:@"per_address"];
-//        stuLogin.per_homeareaid = [body objectForKey:@"per_homeareaid"];
-//        stuLogin.per_addressareaid = [body objectForKey:@"per_addressareaid"];
-//        stuLogin.per_feptletelanleee = [body objectForKey:@"per_feptletelanleee"];
-//        stuLogin.per_firstcarddate = [body objectForKey:@"per_firstcarddate"];
-//        stuLogin.per_historydriverlicence = [body objectForKey:@"per_historydriverlicence"];
-//        stuLogin.per_recordcode = [body objectForKey:@"per_recordcode"];
-//        stuLogin.per_ic = [body objectForKey:@"per_ic"];
-//        stuLogin.price_id = [body objectForKey:@"price_id"];
-//        stuLogin.part_trainmodel = [body objectForKey:@"part_trainmodel"];
-//        stuLogin.part_licensetype = [body objectForKey:@"part_licensetype"];
-//        stuLogin.part_source = [body objectForKey:@"part_source"];
-//        stuLogin.part_waitaddress = [body objectForKey:@"part_waitaddress"];
-//        stuLogin.part_registrationdate = [body objectForKey:@"part_registrationdate"];
-//        stuLogin.part_archivedate = [body objectForKey:@"part_archivedate"];
-//        stuLogin.part_schoolareaid = [body objectForKey:@"part_schoolareaid"];
-//        stuLogin.train_yxdays = [body objectForKey:@"train_yxdays"];
-//        stuLogin.train_learnid = [body objectForKey:@"train_learnid"];
-//        stuLogin.train_traincode = [body objectForKey:@"train_traincode"];
-//        stuLogin.train_yuehours = [body objectForKey:@"train_yuehours"];
-//        stuLogin.train_learndhours = [body objectForKey:@"train_learndhours"];
-//        stuLogin.train_ledgervolume = [body objectForKey:@"train_ledgervolume"];
-//        stuLogin.train_totalhours = [body objectForKey:@"train_totalhours"];
-//        stuLogin.train_ledgeryear = [body objectForKey:@"train_ledgeryear"];
-//        stuLogin.train_losthours = [body objectForKey:@"train_losthours"];
-//        stuLogin.train_addedhours = [body objectForKey:@"train_addedhours"];
-//        stuLogin.train_learndhourstemp = [body objectForKey:@"train_learndhourstemp"];
-//        stuLogin.train_graduationdate = [body objectForKey:@"train_graduationdate"];
-//        stuLogin.train_model_id = [body objectForKey:@"train_model_id"];
-//        stuLogin.train_classno = [body objectForKey:@"train_classno"];
-//        stuLogin.state = [body objectForKey:@"state"];
-//        stuLogin.division_id = [body objectForKey:@"division_id"];
-//        stuLogin.per_photo = [body objectForKey:@"per_photo"];
-//        stuLogin.rein_id = [body objectForKey:@"rein_id"];
-//        stuLogin.per_job = [body objectForKey:@"per_job"];
-//        stuLogin.per_englishname = [body objectForKey:@"per_englishname"];
-//        stuLogin.self_c1 = [body objectForKey:@"self_c1"];
-//        stuLogin.self_c2 = [body objectForKey:@"self_c2"];
-//        stuLogin.self_c3 = [body objectForKey:@"self_c3"];
-//        stuLogin.self_c4 = [body objectForKey:@"self_c4"];
-//        stuLogin.self_c5 = [body objectForKey:@"self_c5"];
-//        stuLogin.self_d1 = [body objectForKey:@"self_d1"];
-//        stuLogin.self_d2 = [body objectForKey:@"self_d2"];
-//        stuLogin.self_d3 = [body objectForKey:@"self_d3"];
-//        stuLogin.jx_code = [body objectForKey:@"jx_code"];
-//        stuLogin.price_id2 = [body objectForKey:@"price_id2"];
-//        stuLogin.price_id3 = [body objectForKey:@"price_id3"];
-//        stuLogin.train_cpxs = [body objectForKey:@"train_cpxs"];
-//        stuLogin.per_finger = [body objectForKey:@"per_finger"];
-//        stuLogin.per_fingerimage = [body objectForKey:@"per_fingerimage"];
-//        stuLogin.part_source2 = [body objectForKey:@"part_source2"];
-//        stuLogin.part_source3 = [body objectForKey:@"part_source3"];
-//        stuLogin.per_tmcode = [body objectForKey:@"per_tmcode"];
-//        stuLogin.price_list = [body objectForKey:@"price_list"];
-//        stuLogin.price_listname = [body objectForKey:@"price_listname"];
-//        stuLogin.self_c6 = [body objectForKey:@"self_c6"];
-//        stuLogin.self_c7 = [body objectForKey:@"self_c7"];
-//        stuLogin.self_c8 = [body objectForKey:@"self_c8"];
-//        stuLogin.yingfu = [body objectForKey:@"yingfu"];
-//        stuLogin.koukuan = [body objectForKey:@"koukuan"];
-//        stuLogin.remark = [body objectForKey:@"remark"];
-//        stuLogin.km1pm = [body objectForKey:@"km1pm"];
-//        stuLogin.km2pm = [body objectForKey:@"km2pm"];
-//        stuLogin.km3pm = [body objectForKey:@"km3pm"];
-//        stuLogin.photoexportmark = [body objectForKey:@"photoexportmark"];
-//    
-//    
-//    return stuLogin;
-//}
+//学员登陆
++(JWLoginModel *)parserStuLoginByDictionary:(NSDictionary *)dic{
+    JWLoginModel *stuLogin = [[JWLoginModel alloc]init];
+    NSDictionary *head = [dic objectForKey:@"head"];
+        stuLogin.issuccess = [head objectForKey:@"issuccess"];
+        stuLogin.statecode = [head objectForKey:@"statecode"];
+        stuLogin.stateinfo = [head objectForKey:@"stateinfo"];
+    NSDictionary *body = [dic objectForKey:@"body"];
+        stuLogin.stuID = [body objectForKey:@"id"];
+        stuLogin.per_id = [body objectForKey:@"per_id"];
+        stuLogin.per_name = [body objectForKey:@"per_name"];
+        stuLogin.per_sex = [body objectForKey:@"per_sex"];
+        stuLogin.per_national = [body objectForKey:@"per_national"];
+        stuLogin.per_remark = [body objectForKey:@"per_remark"];
+        stuLogin.per_namecode = [body objectForKey:@"per_namecode"];
+        stuLogin.per_birthday = [body objectForKey:@"per_birthday"];
+        stuLogin.per_photopath = [body objectForKey:@"per_photopath"];
+        stuLogin.per_postcode = [body objectForKey:@"per_postcode"];
+        stuLogin.per_phone = [body objectForKey:@"per_phone"];
+        stuLogin.per_mobile = [body objectForKey:@"per_mobile"];
+        stuLogin.per_e_mail = [body objectForKey:@"per_e_mail"];
+        stuLogin.per_receivedcard = [body objectForKey:@"per_receivedcard"];
+        stuLogin.per_password = [body objectForKey:@"per_password"];
+        stuLogin.per_idcard = [body objectForKey:@"per_idcard"];
+        stuLogin.per_idcardno = [body objectForKey:@"per_idcardno"];
+        stuLogin.per_nationality = [body objectForKey:@"per_nationality"];
+        stuLogin.per_homeaddress = [body objectForKey:@"per_homeaddress"];
+        stuLogin.per_address = [body objectForKey:@"per_address"];
+        stuLogin.per_homeareaid = [body objectForKey:@"per_homeareaid"];
+        stuLogin.per_addressareaid = [body objectForKey:@"per_addressareaid"];
+        stuLogin.per_feptletelanleee = [body objectForKey:@"per_feptletelanleee"];
+        stuLogin.per_firstcarddate = [body objectForKey:@"per_firstcarddate"];
+        stuLogin.per_historydriverlicence = [body objectForKey:@"per_historydriverlicence"];
+        stuLogin.per_recordcode = [body objectForKey:@"per_recordcode"];
+        stuLogin.per_ic = [body objectForKey:@"per_ic"];
+        stuLogin.price_id = [body objectForKey:@"price_id"];
+        stuLogin.part_trainmodel = [body objectForKey:@"part_trainmodel"];
+        stuLogin.part_licensetype = [body objectForKey:@"part_licensetype"];
+        stuLogin.part_source = [body objectForKey:@"part_source"];
+        stuLogin.part_waitaddress = [body objectForKey:@"part_waitaddress"];
+        stuLogin.part_registrationdate = [body objectForKey:@"part_registrationdate"];
+        stuLogin.part_archivedate = [body objectForKey:@"part_archivedate"];
+        stuLogin.part_schoolareaid = [body objectForKey:@"part_schoolareaid"];
+        stuLogin.train_yxdays = [body objectForKey:@"train_yxdays"];
+        stuLogin.train_learnid = [body objectForKey:@"train_learnid"];
+        stuLogin.train_traincode = [body objectForKey:@"train_traincode"];
+        stuLogin.train_yuehours = [body objectForKey:@"train_yuehours"];
+        stuLogin.train_learndhours = [body objectForKey:@"train_learndhours"];
+        stuLogin.train_ledgervolume = [body objectForKey:@"train_ledgervolume"];
+        stuLogin.train_totalhours = [body objectForKey:@"train_totalhours"];
+        stuLogin.train_ledgeryear = [body objectForKey:@"train_ledgeryear"];
+        stuLogin.train_losthours = [body objectForKey:@"train_losthours"];
+        stuLogin.train_addedhours = [body objectForKey:@"train_addedhours"];
+        stuLogin.train_learndhourstemp = [body objectForKey:@"train_learndhourstemp"];
+        stuLogin.train_graduationdate = [body objectForKey:@"train_graduationdate"];
+        stuLogin.train_model_id = [body objectForKey:@"train_model_id"];
+        stuLogin.train_classno = [body objectForKey:@"train_classno"];
+        stuLogin.state = [body objectForKey:@"state"];
+        stuLogin.division_id = [body objectForKey:@"division_id"];
+        stuLogin.per_photo = [body objectForKey:@"per_photo"];
+        stuLogin.rein_id = [body objectForKey:@"rein_id"];
+        stuLogin.per_job = [body objectForKey:@"per_job"];
+        stuLogin.per_englishname = [body objectForKey:@"per_englishname"];
+        stuLogin.self_c1 = [body objectForKey:@"self_c1"];
+        stuLogin.self_c2 = [body objectForKey:@"self_c2"];
+        stuLogin.self_c3 = [body objectForKey:@"self_c3"];
+        stuLogin.self_c4 = [body objectForKey:@"self_c4"];
+        stuLogin.self_c5 = [body objectForKey:@"self_c5"];
+        stuLogin.self_d1 = [body objectForKey:@"self_d1"];
+        stuLogin.self_d2 = [body objectForKey:@"self_d2"];
+        stuLogin.self_d3 = [body objectForKey:@"self_d3"];
+        stuLogin.jx_code = [body objectForKey:@"jx_code"];
+        stuLogin.price_id2 = [body objectForKey:@"price_id2"];
+        stuLogin.price_id3 = [body objectForKey:@"price_id3"];
+        stuLogin.train_cpxs = [body objectForKey:@"train_cpxs"];
+        stuLogin.per_finger = [body objectForKey:@"per_finger"];
+        stuLogin.per_fingerimage = [body objectForKey:@"per_fingerimage"];
+        stuLogin.part_source2 = [body objectForKey:@"part_source2"];
+        stuLogin.part_source3 = [body objectForKey:@"part_source3"];
+        stuLogin.per_tmcode = [body objectForKey:@"per_tmcode"];
+        stuLogin.price_list = [body objectForKey:@"price_list"];
+        stuLogin.price_listname = [body objectForKey:@"price_listname"];
+        stuLogin.self_c6 = [body objectForKey:@"self_c6"];
+        stuLogin.self_c7 = [body objectForKey:@"self_c7"];
+        stuLogin.self_c8 = [body objectForKey:@"self_c8"];
+        stuLogin.yingfu = [body objectForKey:@"yingfu"];
+        stuLogin.koukuan = [body objectForKey:@"koukuan"];
+        stuLogin.remark = [body objectForKey:@"remark"];
+        stuLogin.km1pm = [body objectForKey:@"km1pm"];
+        stuLogin.km2pm = [body objectForKey:@"km2pm"];
+        stuLogin.km3pm = [body objectForKey:@"km3pm"];
+        stuLogin.photoexportmark = [body objectForKey:@"photoexportmark"];
+    
+    
+    return stuLogin;
+}
 ////教练列表
 //+(DriTeachersList *)parserDriTeaListByDictionary:(NSDictionary *)dic{
 //    DriTeachersList *driTeachersList = [[DriTeachersList alloc]init];
@@ -244,37 +248,37 @@
 //    }
 //    return examSchedule;
 //}
-////预约记录
-//+(BookRecord *)parserBookRecordByDictionary:(NSDictionary *)dic{
-//    BookRecord *bookRecord = [[BookRecord alloc]init];
-//    NSDictionary *head = [dic objectForKey:@"head"];
-//    bookRecord.issuccess = [head objectForKey:@"issuccess"];
-//    bookRecord.statecode = [head objectForKey:@"statecode"];
-//    bookRecord.stateinfo = [head objectForKey:@"stateinfo"];
-//    NSArray *recordArr = [dic objectForKey:@"body"];
-//    bookRecord.stuRecords = [NSMutableArray array];
-//    for (NSDictionary *recordDic in recordArr) {
-//        StuBookRecordInfo *recordInfo = [[StuBookRecordInfo alloc]init];
-//        recordInfo.per_name = [recordDic objectForKey:@"per_name"];
-//        recordInfo.stuID = [recordDic objectForKey:@"id"];
-//        recordInfo.ddate = [recordDic objectForKey:@"ddate"];
-//        recordInfo.period = [recordDic objectForKey:@"period"];
-//        recordInfo.t_info = [recordDic objectForKey:@"t_info"];
-//        recordInfo.type = [recordDic objectForKey:@"type"];
-//        recordInfo.yyfs = [recordDic objectForKey:@"yyfs"];
-//        recordInfo.carcode = [recordDic objectForKey:@"carcode"];
-//        recordInfo.teacher = [recordDic objectForKey:@"teacher"];
-//        recordInfo.status = [recordDic objectForKey:@"status"];
-//        recordInfo.tuiyuetime = [recordDic objectForKey:@"tuiyuetime"];
-//        recordInfo.t_yn = [recordDic objectForKey:@"t_yn"];
-//        recordInfo.jspy = [recordDic objectForKey:@"jspy"];
-//        recordInfo.pjzt = [recordDic objectForKey:@"pjzt"];
-//        [bookRecord.stuRecords addObject:recordInfo];
-//   
-//        
-//    }
-//    return bookRecord;
-//}
+//预约记录
++(JWRecordHeadModel *)parserBookRecordByDictionary:(NSDictionary *)dic{
+    JWRecordHeadModel *bookRecord = [[JWRecordHeadModel alloc]init];
+    NSDictionary *head = [dic objectForKey:@"head"];
+    bookRecord.issuccess = [head objectForKey:@"issuccess"];
+    bookRecord.statecode = [head objectForKey:@"statecode"];
+    bookRecord.stateinfo = [head objectForKey:@"stateinfo"];
+    NSArray *recordArr = [dic objectForKey:@"body"];
+    bookRecord.recordBody = [NSMutableArray array];
+    for (NSDictionary *recordDic in recordArr) {
+        JWRecordBodyModel *recordInfo = [[JWRecordBodyModel alloc]init];
+        recordInfo.per_name = [recordDic objectForKey:@"per_name"];
+        recordInfo.stuID = [recordDic objectForKey:@"id"];
+        recordInfo.ddate = [recordDic objectForKey:@"ddate"];
+        recordInfo.period = [recordDic objectForKey:@"period"];
+        recordInfo.t_info = [recordDic objectForKey:@"t_info"];
+        recordInfo.type = [recordDic objectForKey:@"type"];
+        recordInfo.yyfs = [recordDic objectForKey:@"yyfs"];
+        recordInfo.carcode = [recordDic objectForKey:@"carcode"];
+        recordInfo.teacher = [recordDic objectForKey:@"teacher"];
+        recordInfo.status = [recordDic objectForKey:@"status"];
+        recordInfo.tuiyuetime = [recordDic objectForKey:@"tuiyuetime"];
+        recordInfo.t_yn = [recordDic objectForKey:@"t_yn"];
+        recordInfo.jspy = [recordDic objectForKey:@"jspy"];
+        recordInfo.pjzt = [recordDic objectForKey:@"pjzt"];
+        [bookRecord.recordBody addObject:recordInfo];
+   
+        
+    }
+    return bookRecord;
+}
 ////分享
 //+(Share *)parserShareByDictionary:(NSDictionary *)dic{
 //    Share *share = [[Share alloc]init];

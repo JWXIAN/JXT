@@ -13,8 +13,6 @@
 		00759A6A1B33B641002B1A22 /* JXTTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00759A691B33B641002B1A22 /* JXTTests.m */; };
 		00759A991B33B8F3002B1A22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00759A831B33B8F3002B1A22 /* AppDelegate.m */; };
 		00759A9A1B33B8F3002B1A22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00759A841B33B8F3002B1A22 /* main.m */; };
-		00759AA11B33C12A002B1A22 /* JWTarBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00759AA01B33C12A002B1A22 /* JWTarBarController.m */; };
-		00759AA41B33C1BA002B1A22 /* JWNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00759AA31B33C1BA002B1A22 /* JWNavController.m */; };
 		00759AA71B33C320002B1A22 /* JWHomeTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00759AA61B33C320002B1A22 /* JWHomeTVController.m */; };
 		0084C3231B33E1A100C9CAB0 /* JWProfileTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0084C3211B33E1A100C9CAB0 /* JWProfileTVCell.m */; };
 		0084C3241B33E1A100C9CAB0 /* JWProfileTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0084C3221B33E1A100C9CAB0 /* JWProfileTVCell.xib */; };
@@ -23,7 +21,11 @@
 		7F1583A61B36B8DA00B9389D /* JWTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1583A51B36B8DA00B9389D /* JWTableViewControllerTest.m */; };
 		7F1583AD1B36BD2B00B9389D /* JWSettingTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F1583AC1B36BD2B00B9389D /* JWSettingTVController.m */; };
 		7F4210101B364FDE00BB2BF3 /* JWDLTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F42100F1B364FDE00BB2BF3 /* JWDLTVController.m */; };
-		7F42101A1B366E6100BB2BF3 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4210191B366E6100BB2BF3 /* NSArray+Log.m */; };
+		7F4FEB881B3B97A400286748 /* JWVchicleTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4FEB861B3B97A400286748 /* JWVchicleTVCell.m */; };
+		7F4FEB891B3B97A400286748 /* JWVchicleTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F4FEB871B3B97A400286748 /* JWVchicleTVCell.xib */; };
+		7F5FFFFA1B39542B0083E04B /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FFFF91B39542B0083E04B /* MBProgressHUD+MJ.m */; };
+		7F5FFFFE1B395E2F0083E04B /* JWSettingTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5FFFFC1B395E2F0083E04B /* JWSettingTVCell.m */; };
+		7F5FFFFF1B395E2F0083E04B /* JWSettingTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5FFFFD1B395E2F0083E04B /* JWSettingTVCell.xib */; };
 		7F7513941B34460000C7863F /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7513821B34460000C7863F /* AFHTTPRequestOperation.m */; };
 		7F7513951B34460000C7863F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7513841B34460000C7863F /* AFHTTPRequestOperationManager.m */; };
 		7F7513961B34460000C7863F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7513861B34460000C7863F /* AFHTTPSessionManager.m */; };
@@ -77,22 +79,25 @@
 		7F7514C61B3446BF00C7863F /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7514B11B3446BF00C7863F /* UIScrollView+MJExtension.m */; };
 		7F7514C71B3446BF00C7863F /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7514B31B3446BF00C7863F /* UIScrollView+MJRefresh.m */; };
 		7F7514C81B3446BF00C7863F /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7514B51B3446BF00C7863F /* UIView+MJExtension.m */; };
-		7F8CF8DF1B3562AF00293EF0 /* JWLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8CF8DD1B3562AF00293EF0 /* JWLoginController.m */; };
 		7F8CF8F31B35844200293EF0 /* JiaxiaotongAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8CF8F01B35844200293EF0 /* JiaxiaotongAPI.m */; };
 		7F8CF8F41B35844200293EF0 /* JsonPaser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8CF8F21B35844200293EF0 /* JsonPaser.m */; };
+		7FAAA1111B3A5210007327CB /* JWLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAAA1101B3A5210007327CB /* JWLoginController.m */; };
+		7FAAA1311B3A9169007327CB /* JWLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FAAA12F1B3A9169007327CB /* JWLoginVC.xib */; };
+		7FC9105C1B3BF0DC000E8E4E /* JWRecordHeadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9105B1B3BF0DC000E8E4E /* JWRecordHeadModel.m */; };
+		7FC9105F1B3BF105000E8E4E /* JWRecordBodyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9105E1B3BF105000E8E4E /* JWRecordBodyModel.m */; };
 		7FCB48211B38EC1C003C24B8 /* groups.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FCB48201B38EC1C003C24B8 /* groups.plist */; };
 		7FCB48241B38ECE4003C24B8 /* JWVehicleGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB48231B38ECE4003C24B8 /* JWVehicleGroupModel.m */; };
 		7FCB48311B38F42F003C24B8 /* JWProfileTVModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB48301B38F42F003C24B8 /* JWProfileTVModel.m */; };
-		7FCB48341B38F571003C24B8 /* JWRecordAllModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB48331B38F571003C24B8 /* JWRecordAllModel.m */; };
 		7FCB48391B38F58B003C24B8 /* JWRecordTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FCB48371B38F58B003C24B8 /* JWRecordTVCell.xib */; };
 		7FCB483C1B39008A003C24B8 /* JWRecordTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB483B1B39008A003C24B8 /* JWRecordTVCell.m */; };
 		7FCB48401B3934F4003C24B8 /* JWDLTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB483E1B3934F4003C24B8 /* JWDLTVCell.m */; };
 		7FCB48411B3934F4003C24B8 /* JWDLTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FCB483F1B3934F4003C24B8 /* JWDLTVCell.xib */; };
+		7FCB48441B394049003C24B8 /* JWLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB48431B394049003C24B8 /* JWLoginModel.m */; };
+		7FD033791B3AA7E2005F66A5 /* JWNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD033761B3AA7E2005F66A5 /* JWNavController.m */; };
+		7FD0337A1B3AA7E2005F66A5 /* JWTarBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD033781B3AA7E2005F66A5 /* JWTarBarController.m */; };
 		7FEAAE871B3819A800E67E92 /* JWProfileTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAAE861B3819A800E67E92 /* JWProfileTVController.m */; };
 		7FEED8E81B36D27700168942 /* DZNSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEED8E51B36D27700168942 /* DZNSegmentedControl.m */; };
 		7FEED8EE1B36D7C300168942 /* JWRecordTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEED8ED1B36D7C300168942 /* JWRecordTVController.m */; };
-		7FEED8F21B370AA300168942 /* JWLoginCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEED8F01B370AA300168942 /* JWLoginCell.m */; };
-		7FEED8F31B370AA300168942 /* JWLoginCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FEED8F11B370AA300168942 /* JWLoginCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,10 +124,6 @@
 		00759A821B33B8F3002B1A22 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		00759A831B33B8F3002B1A22 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		00759A841B33B8F3002B1A22 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		00759A9F1B33C12A002B1A22 /* JWTarBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWTarBarController.h; sourceTree = "<group>"; };
-		00759AA01B33C12A002B1A22 /* JWTarBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWTarBarController.m; sourceTree = "<group>"; };
-		00759AA21B33C1BA002B1A22 /* JWNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWNavController.h; sourceTree = "<group>"; };
-		00759AA31B33C1BA002B1A22 /* JWNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWNavController.m; sourceTree = "<group>"; };
 		00759AA51B33C320002B1A22 /* JWHomeTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWHomeTVController.h; sourceTree = "<group>"; };
 		00759AA61B33C320002B1A22 /* JWHomeTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWHomeTVController.m; sourceTree = "<group>"; };
 		0084C3201B33E1A100C9CAB0 /* JWProfileTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWProfileTVCell.h; sourceTree = "<group>"; };
@@ -138,8 +139,14 @@
 		7F1583AC1B36BD2B00B9389D /* JWSettingTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWSettingTVController.m; sourceTree = "<group>"; };
 		7F42100E1B364FDE00BB2BF3 /* JWDLTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWDLTVController.h; sourceTree = "<group>"; };
 		7F42100F1B364FDE00BB2BF3 /* JWDLTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWDLTVController.m; sourceTree = "<group>"; };
-		7F4210181B366E6100BB2BF3 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
-		7F4210191B366E6100BB2BF3 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
+		7F4FEB851B3B97A400286748 /* JWVchicleTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWVchicleTVCell.h; sourceTree = "<group>"; };
+		7F4FEB861B3B97A400286748 /* JWVchicleTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWVchicleTVCell.m; sourceTree = "<group>"; };
+		7F4FEB871B3B97A400286748 /* JWVchicleTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JWVchicleTVCell.xib; sourceTree = "<group>"; };
+		7F5FFFF81B39542B0083E04B /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
+		7F5FFFF91B39542B0083E04B /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
+		7F5FFFFB1B395E2F0083E04B /* JWSettingTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWSettingTVCell.h; sourceTree = "<group>"; };
+		7F5FFFFC1B395E2F0083E04B /* JWSettingTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWSettingTVCell.m; sourceTree = "<group>"; };
+		7F5FFFFD1B395E2F0083E04B /* JWSettingTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JWSettingTVCell.xib; sourceTree = "<group>"; };
 		7F7513811B34460000C7863F /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		7F7513821B34460000C7863F /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		7F7513831B34460000C7863F /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -249,34 +256,40 @@
 		7F7514B31B3446BF00C7863F /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		7F7514B41B3446BF00C7863F /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		7F7514B51B3446BF00C7863F /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
-		7F8CF8DC1B3562AF00293EF0 /* JWLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JWLoginController.h; path = ../View/JWLoginController.h; sourceTree = "<group>"; };
-		7F8CF8DD1B3562AF00293EF0 /* JWLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JWLoginController.m; path = ../View/JWLoginController.m; sourceTree = "<group>"; };
 		7F8CF8EF1B35844200293EF0 /* JiaxiaotongAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiaxiaotongAPI.h; sourceTree = "<group>"; };
 		7F8CF8F01B35844200293EF0 /* JiaxiaotongAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiaxiaotongAPI.m; sourceTree = "<group>"; };
 		7F8CF8F11B35844200293EF0 /* JsonPaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonPaser.h; sourceTree = "<group>"; };
 		7F8CF8F21B35844200293EF0 /* JsonPaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonPaser.m; sourceTree = "<group>"; };
+		7FAAA10F1B3A5210007327CB /* JWLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWLoginController.h; sourceTree = "<group>"; };
+		7FAAA1101B3A5210007327CB /* JWLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWLoginController.m; sourceTree = "<group>"; };
+		7FAAA12F1B3A9169007327CB /* JWLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JWLoginVC.xib; sourceTree = "<group>"; };
+		7FC9105A1B3BF0DC000E8E4E /* JWRecordHeadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWRecordHeadModel.h; sourceTree = "<group>"; };
+		7FC9105B1B3BF0DC000E8E4E /* JWRecordHeadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWRecordHeadModel.m; sourceTree = "<group>"; };
+		7FC9105D1B3BF105000E8E4E /* JWRecordBodyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWRecordBodyModel.h; sourceTree = "<group>"; };
+		7FC9105E1B3BF105000E8E4E /* JWRecordBodyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWRecordBodyModel.m; sourceTree = "<group>"; };
 		7FCB48201B38EC1C003C24B8 /* groups.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = groups.plist; sourceTree = "<group>"; };
 		7FCB48221B38ECE4003C24B8 /* JWVehicleGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWVehicleGroupModel.h; sourceTree = "<group>"; };
 		7FCB48231B38ECE4003C24B8 /* JWVehicleGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWVehicleGroupModel.m; sourceTree = "<group>"; };
 		7FCB482F1B38F42F003C24B8 /* JWProfileTVModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWProfileTVModel.h; sourceTree = "<group>"; };
 		7FCB48301B38F42F003C24B8 /* JWProfileTVModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWProfileTVModel.m; sourceTree = "<group>"; };
-		7FCB48321B38F571003C24B8 /* JWRecordAllModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWRecordAllModel.h; sourceTree = "<group>"; };
-		7FCB48331B38F571003C24B8 /* JWRecordAllModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWRecordAllModel.m; sourceTree = "<group>"; };
 		7FCB48371B38F58B003C24B8 /* JWRecordTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JWRecordTVCell.xib; sourceTree = "<group>"; };
 		7FCB483A1B39008A003C24B8 /* JWRecordTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWRecordTVCell.h; sourceTree = "<group>"; };
 		7FCB483B1B39008A003C24B8 /* JWRecordTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWRecordTVCell.m; sourceTree = "<group>"; };
 		7FCB483D1B3934F4003C24B8 /* JWDLTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWDLTVCell.h; sourceTree = "<group>"; };
 		7FCB483E1B3934F4003C24B8 /* JWDLTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWDLTVCell.m; sourceTree = "<group>"; };
 		7FCB483F1B3934F4003C24B8 /* JWDLTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JWDLTVCell.xib; sourceTree = "<group>"; };
+		7FCB48421B394049003C24B8 /* JWLoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWLoginModel.h; sourceTree = "<group>"; };
+		7FCB48431B394049003C24B8 /* JWLoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWLoginModel.m; sourceTree = "<group>"; };
+		7FD033751B3AA7E2005F66A5 /* JWNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWNavController.h; sourceTree = "<group>"; };
+		7FD033761B3AA7E2005F66A5 /* JWNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWNavController.m; sourceTree = "<group>"; };
+		7FD033771B3AA7E2005F66A5 /* JWTarBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWTarBarController.h; sourceTree = "<group>"; };
+		7FD033781B3AA7E2005F66A5 /* JWTarBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWTarBarController.m; sourceTree = "<group>"; };
 		7FEAAE851B3819A800E67E92 /* JWProfileTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWProfileTVController.h; sourceTree = "<group>"; };
 		7FEAAE861B3819A800E67E92 /* JWProfileTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWProfileTVController.m; sourceTree = "<group>"; };
 		7FEED8E41B36D27700168942 /* DZNSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNSegmentedControl.h; sourceTree = "<group>"; };
 		7FEED8E51B36D27700168942 /* DZNSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZNSegmentedControl.m; sourceTree = "<group>"; };
 		7FEED8EC1B36D7C300168942 /* JWRecordTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWRecordTVController.h; sourceTree = "<group>"; };
 		7FEED8ED1B36D7C300168942 /* JWRecordTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWRecordTVController.m; sourceTree = "<group>"; };
-		7FEED8EF1B370AA300168942 /* JWLoginCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWLoginCell.h; sourceTree = "<group>"; };
-		7FEED8F01B370AA300168942 /* JWLoginCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWLoginCell.m; sourceTree = "<group>"; };
-		7FEED8F11B370AA300168942 /* JWLoginCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JWLoginCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,8 +322,10 @@
 		00114F971B33C42100BBE046 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7FCB48321B38F571003C24B8 /* JWRecordAllModel.h */,
-				7FCB48331B38F571003C24B8 /* JWRecordAllModel.m */,
+				7FC9105A1B3BF0DC000E8E4E /* JWRecordHeadModel.h */,
+				7FC9105B1B3BF0DC000E8E4E /* JWRecordHeadModel.m */,
+				7FC9105D1B3BF105000E8E4E /* JWRecordBodyModel.h */,
+				7FC9105E1B3BF105000E8E4E /* JWRecordBodyModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -346,6 +361,9 @@
 		00114F9B1B33C42B00BBE046 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7F4FEB851B3B97A400286748 /* JWVchicleTVCell.h */,
+				7F4FEB861B3B97A400286748 /* JWVchicleTVCell.m */,
+				7F4FEB871B3B97A400286748 /* JWVchicleTVCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -459,25 +477,14 @@
 		00759A781B33B8F3002B1A22 /* Main(主要) */ = {
 			isa = PBXGroup;
 			children = (
+				7FD033741B3AA7E2005F66A5 /* Controller */,
 				7F8CF8EE1B35844200293EF0 /* JsonAPI */,
-				00759A7E1B33B8F3002B1A22 /* Controller */,
 				00759A7F1B33B8F3002B1A22 /* Lib */,
 				00759A801B33B8F3002B1A22 /* Model */,
 				00759A811B33B8F3002B1A22 /* Other */,
 				00759A851B33B8F3002B1A22 /* View */,
 			);
 			path = "Main(主要)";
-			sourceTree = "<group>";
-		};
-		00759A7E1B33B8F3002B1A22 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				00759A9F1B33C12A002B1A22 /* JWTarBarController.h */,
-				00759AA01B33C12A002B1A22 /* JWTarBarController.m */,
-				00759AA21B33C1BA002B1A22 /* JWNavController.h */,
-				00759AA31B33C1BA002B1A22 /* JWNavController.m */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		00759A7F1B33B8F3002B1A22 /* Lib */ = {
@@ -502,7 +509,6 @@
 		00759A811B33B8F3002B1A22 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				7F4210171B366E6100BB2BF3 /* Log */,
 				00759A821B33B8F3002B1A22 /* AppDelegate.h */,
 				00759A831B33B8F3002B1A22 /* AppDelegate.m */,
 				00759A841B33B8F3002B1A22 /* main.m */,
@@ -620,6 +626,9 @@
 		7F1583AA1B36BD1200B9389D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7F5FFFFB1B395E2F0083E04B /* JWSettingTVCell.h */,
+				7F5FFFFC1B395E2F0083E04B /* JWSettingTVCell.m */,
+				7F5FFFFD1B395E2F0083E04B /* JWSettingTVCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -664,15 +673,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		7F4210171B366E6100BB2BF3 /* Log */ = {
-			isa = PBXGroup;
-			children = (
-				7F4210181B366E6100BB2BF3 /* NSArray+Log.h */,
-				7F4210191B366E6100BB2BF3 /* NSArray+Log.m */,
-			);
-			path = Log;
-			sourceTree = "<group>";
-		};
 		7F7513751B34438200C7863F /* Login(登录) */ = {
 			isa = PBXGroup;
 			children = (
@@ -686,8 +686,8 @@
 		7F7513761B34438200C7863F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7F8CF8DC1B3562AF00293EF0 /* JWLoginController.h */,
-				7F8CF8DD1B3562AF00293EF0 /* JWLoginController.m */,
+				7FAAA10F1B3A5210007327CB /* JWLoginController.h */,
+				7FAAA1101B3A5210007327CB /* JWLoginController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -695,6 +695,8 @@
 		7F7513771B34438200C7863F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7FCB48421B394049003C24B8 /* JWLoginModel.h */,
+				7FCB48431B394049003C24B8 /* JWLoginModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -702,9 +704,7 @@
 		7F7513781B34438200C7863F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7FEED8EF1B370AA300168942 /* JWLoginCell.h */,
-				7FEED8F01B370AA300168942 /* JWLoginCell.m */,
-				7FEED8F11B370AA300168942 /* JWLoginCell.xib */,
+				7FAAA12F1B3A9169007327CB /* JWLoginVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -778,6 +778,8 @@
 		7F7513CF1B34467E00C7863F /* MBProgessHUD */ = {
 			isa = PBXGroup;
 			children = (
+				7F5FFFF81B39542B0083E04B /* MBProgressHUD+MJ.h */,
+				7F5FFFF91B39542B0083E04B /* MBProgressHUD+MJ.m */,
 				7F7513D01B34467E00C7863F /* MBProgressHUD.h */,
 				7F7513D11B34467E00C7863F /* MBProgressHUD.m */,
 			);
@@ -945,6 +947,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		7FD033741B3AA7E2005F66A5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7FD033751B3AA7E2005F66A5 /* JWNavController.h */,
+				7FD033761B3AA7E2005F66A5 /* JWNavController.m */,
+				7FD033771B3AA7E2005F66A5 /* JWTarBarController.h */,
+				7FD033781B3AA7E2005F66A5 /* JWTarBarController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		7FEED8E21B36D27700168942 /* Segment(顶部分块) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1062,10 +1075,12 @@
 				7FCB48391B38F58B003C24B8 /* JWRecordTVCell.xib in Resources */,
 				00759A5E1B33B640002B1A22 /* LaunchScreen.xib in Resources */,
 				7FCB48411B3934F4003C24B8 /* JWDLTVCell.xib in Resources */,
+				7F4FEB891B3B97A400286748 /* JWVchicleTVCell.xib in Resources */,
+				7F5FFFFF1B395E2F0083E04B /* JWSettingTVCell.xib in Resources */,
 				00759A5B1B33B640002B1A22 /* Images.xcassets in Resources */,
+				7FAAA1311B3A9169007327CB /* JWLoginVC.xib in Resources */,
 				7FCB48211B38EC1C003C24B8 /* groups.plist in Resources */,
 				7F7514C41B3446BF00C7863F /* MJRefresh.bundle in Resources */,
-				7FEED8F31B370AA300168942 /* JWLoginCell.xib in Resources */,
 				0084C3241B33E1A100C9CAB0 /* JWProfileTVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1084,6 +1099,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FD0337A1B3AA7E2005F66A5 /* JWTarBarController.m in Sources */,
 				7F7513CC1B34463E00C7863F /* UIImageView+HighlightedWebCache.m in Sources */,
 				7FEED8E81B36D27700168942 /* DZNSegmentedControl.m in Sources */,
 				7F7514BB1B3446BF00C7863F /* MJRefreshAutoGifFooter.m in Sources */,
@@ -1099,17 +1115,17 @@
 				7F7513EC1B34468B00C7863F /* NSString+MJExtension.m in Sources */,
 				7F4210101B364FDE00BB2BF3 /* JWDLTVController.m in Sources */,
 				7F7514B71B3446BF00C7863F /* MJRefreshBackFooter.m in Sources */,
-				7F42101A1B366E6100BB2BF3 /* NSArray+Log.m in Sources */,
 				7F7513C11B34463E00C7863F /* SDImageCache.m in Sources */,
 				7F7514BE1B3446BF00C7863F /* MJRefreshBackGifFooter.m in Sources */,
-				00759AA41B33C1BA002B1A22 /* JWNavController.m in Sources */,
 				7F7513C81B34463E00C7863F /* UIButton+WebCache.m in Sources */,
-				00759AA11B33C12A002B1A22 /* JWTarBarController.m in Sources */,
 				7F7513EA1B34468B00C7863F /* NSObject+MJKeyValue.m in Sources */,
 				7FEAAE871B3819A800E67E92 /* JWProfileTVController.m in Sources */,
+				7FD033791B3AA7E2005F66A5 /* JWNavController.m in Sources */,
 				7F7513CB1B34463E00C7863F /* UIImage+WebP.m in Sources */,
+				7FAAA1111B3A5210007327CB /* JWLoginController.m in Sources */,
 				7FEED8EE1B36D7C300168942 /* JWRecordTVController.m in Sources */,
 				7F7514C01B3446BF00C7863F /* MJRefreshBackStateFooter.m in Sources */,
+				7FCB48441B394049003C24B8 /* JWLoginModel.m in Sources */,
 				7F7513E91B34468B00C7863F /* NSObject+MJCoding.m in Sources */,
 				7F75139C1B34460000C7863F /* AFURLSessionManager.m in Sources */,
 				7FCB48241B38ECE4003C24B8 /* JWVehicleGroupModel.m in Sources */,
@@ -1119,7 +1135,11 @@
 				7F7514BF1B3446BF00C7863F /* MJRefreshBackNormalFooter.m in Sources */,
 				7F7513C91B34463E00C7863F /* UIImage+GIF.m in Sources */,
 				7F7513CE1B34463E00C7863F /* UIView+WebCacheOperation.m in Sources */,
+				7F4FEB881B3B97A400286748 /* JWVchicleTVCell.m in Sources */,
 				7F7513971B34460000C7863F /* AFNetworkReachabilityManager.m in Sources */,
+				7F5FFFFE1B395E2F0083E04B /* JWSettingTVCell.m in Sources */,
+				7F5FFFFA1B39542B0083E04B /* MBProgressHUD+MJ.m in Sources */,
+				7FC9105F1B3BF105000E8E4E /* JWRecordBodyModel.m in Sources */,
 				7F7514C81B3446BF00C7863F /* UIView+MJExtension.m in Sources */,
 				7FCB483C1B39008A003C24B8 /* JWRecordTVCell.m in Sources */,
 				7F7514C11B3446BF00C7863F /* MJRefreshGifHeader.m in Sources */,
@@ -1129,22 +1149,20 @@
 				7F7513C31B34463E00C7863F /* SDWebImageDecoder.m in Sources */,
 				7F7513C01B34463E00C7863F /* NSData+ImageContentType.m in Sources */,
 				7F7513D21B34467E00C7863F /* MBProgressHUD.m in Sources */,
+				7FC9105C1B3BF0DC000E8E4E /* JWRecordHeadModel.m in Sources */,
 				7F1583A01B369D9B00B9389D /* JWDriveHeadModel.m in Sources */,
 				7F75139B1B34460000C7863F /* AFURLResponseSerialization.m in Sources */,
-				7FEED8F21B370AA300168942 /* JWLoginCell.m in Sources */,
 				7F7514BD1B3446BF00C7863F /* MJRefreshAutoStateFooter.m in Sources */,
 				7F7513C51B34463E00C7863F /* SDWebImageDownloaderOperation.m in Sources */,
 				7F1583A61B36B8DA00B9389D /* JWTableViewControllerTest.m in Sources */,
 				7F7513BF1B34463E00C7863F /* MKAnnotationView+WebCache.m in Sources */,
 				7F75139A1B34460000C7863F /* AFURLRequestSerialization.m in Sources */,
-				7F8CF8DF1B3562AF00293EF0 /* JWLoginController.m in Sources */,
 				7F8CF8F31B35844200293EF0 /* JiaxiaotongAPI.m in Sources */,
 				7F7513991B34460000C7863F /* AFURLConnectionOperation.m in Sources */,
 				7F7513E51B34468B00C7863F /* MJConst.m in Sources */,
 				7F7514C51B3446BF00C7863F /* MJRefreshConst.m in Sources */,
 				7F7513951B34460000C7863F /* AFHTTPRequestOperationManager.m in Sources */,
 				00759A991B33B8F3002B1A22 /* AppDelegate.m in Sources */,
-				7FCB48341B38F571003C24B8 /* JWRecordAllModel.m in Sources */,
 				7F7513EB1B34468B00C7863F /* NSObject+MJProperty.m in Sources */,
 				7F8CF8F41B35844200293EF0 /* JsonPaser.m in Sources */,
 				7F7513C41B34463E00C7863F /* SDWebImageDownloader.m in Sources */,
@@ -1276,10 +1294,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = JXT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d04643d1-4748-4dff-a41a-b4591f450090";
 			};
 			name = Debug;
 		};
@@ -1287,10 +1307,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = JXT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d04643d1-4748-4dff-a41a-b4591f450090";
 			};
 			name = Release;
 		};
