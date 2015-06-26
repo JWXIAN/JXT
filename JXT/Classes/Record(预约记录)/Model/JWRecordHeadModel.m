@@ -13,7 +13,7 @@
 {
     self = [super init];
     if (self) {
-        self.recordBody = [NSMutableArray array];
+        self.recordHeads = [NSMutableArray array];
     }
     return self;
 }

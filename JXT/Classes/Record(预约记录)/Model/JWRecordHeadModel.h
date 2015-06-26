@@ -14,5 +14,6 @@
 @property (nonatomic,copy)NSString *statecode;                  // 状态码 ???
 @property (nonatomic,copy)NSString *stateinfo;                  //  状态信息 ???
 
-@property (nonatomic,strong)NSMutableArray *recordBody;
+/**存放的body的数据模型*/
+@property (nonatomic,strong)NSMutableArray *recordHeads;
 @end

@@ -1,13 +1,13 @@
 //
-//  JWProfileTVCell.h
+//  JWProfileModel.m
 //  JXT
 //
 //  Created by JWX on 15/6/26.
 //  Copyright (c) 2015年 JW. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "JWProfileModel.h"
 
-@interface JWProfileTVCell : UITableViewCell
+@implementation JWProfileModel
 
 @end

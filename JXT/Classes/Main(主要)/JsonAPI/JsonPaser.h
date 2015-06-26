@@ -12,6 +12,7 @@
 @class JWLoginModel;
 @class JWDriveHeadModel;
 @class JWRecordHeadModel;
+@class JWNoticeModel;
 
 @interface JsonPaser : NSObject
 
@@ -49,8 +50,8 @@
 //+(TeacherAppraised *)parserTeacherAppraisedByDictionary:(NSDictionary *)dic;
 ////学员考试明细
 //+(StudentExamContent *)parserStudentExamContentByDictionary:(NSDictionary *)dic;
-////官方公告
-//+(OfficialAnnounce *)parserOfficialAnnounceByDictionary:(NSDictionary *)dic;
+//官方公告
++(JWNoticeModel *)parserOfficialAnnounceByDictionary:(NSDictionary *)dic;
 ////联动时段列表
 //+(DynamicPeriodList *)parserDynamicPeriodListByDictionary:(NSDictionary *)dic;
 

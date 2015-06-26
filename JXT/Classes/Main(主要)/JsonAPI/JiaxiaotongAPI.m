@@ -15,6 +15,7 @@
 #import "JWLoginModel.h"
 #import "JWDriveHeadModel.h"
 #import "JWRecordHeadModel.h"
+#import "PrefixHeader.pch"
 
 
 @implementation JiaxiaotongAPI
@@ -184,6 +185,7 @@
     
     [manager GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        JWLog(@"%@",dic);
         JWRecordHeadModel *bookRecord = [JsonPaser parserBookRecordByDictionary:dic];
         callback(bookRecord);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -345,30 +347,33 @@
 //    }];
 //}
 //
-////官方公告
-//+(void)requestOfficialAnnounceByOfficialAnnounce:(NSString *)officialAnnounce andCallback:(MyCallback)callback{
-//   // NSString *path = @"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx?methodName=queryAttention&xmlStr=%3C?xml%20version=%221.0%22%20encoding=%22utf-8%22%20?%3E%3CMAP_TO_XML%3E%3CschoolId%3E49267%3C/schoolId%3E%3CmethodName%3EqueryAttention%3C/methodName%3E%3C/MAP_TO_XML%3E";
-//    
-//    NSString *path = @"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx?methodName=queryAttention&xmlStr=<?xml version=\"1.0\" encoding=\"utf-8\" ?><MAP_TO_XML><schoolId>49267</schoolId><methodName>queryAttention</methodName></MAP_TO_XML>";
-//    
-//    path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    
-//    path =[path stringByReplacingOccurrencesOfString:@"<" withString:@"%3C"];
-//    path =[path stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-//    path =[path stringByReplacingOccurrencesOfString:@"\"" withString:@"%22"];
-//    path =[path stringByReplacingOccurrencesOfString:@">" withString:@"%3E"];
-//    
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
-//    [manager GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-//        OfficialAnnounce *officialAnnounce = [JsonPaser parserOfficialAnnounceByDictionary:dic];
-//        callback(officialAnnounce);
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//         NSLog(@"发送请求官方公告失败!");
-//    }];
-//}
-//
+//官方公告
++(void)requestOfficialAnnounceByOfficialAnnounce:(NSString *)officialAnnounce andCallback:(MyCallback)callback{
+   // NSString *path = @"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx?methodName=queryAttention&xmlStr=%3C?xml%20version=%221.0%22%20encoding=%22utf-8%22%20?%3E%3CMAP_TO_XML%3E%3CschoolId%3E49267%3C/schoolId%3E%3CmethodName%3EqueryAttention%3C/methodName%3E%3C/MAP_TO_XML%3E";
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *schoolID = [ud objectForKey:@"drivecode"];
+    
+    /**url拼接驾校id*/
+    NSString *path = [NSString stringWithFormat:@"http://xy.1039.net:12345/drivingServcie/rest/driving_json/Default.ashx?methodName=queryAttention&xmlStr=<?xml version=\"1.0\" encoding=\"utf-8\" ?><MAP_TO_XML><schoolId>%@</schoolId><methodName>queryAttention</methodName></MAP_TO_XML>", schoolID];
+    
+    path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    path =[path stringByReplacingOccurrencesOfString:@"<" withString:@"%3C"];
+    path =[path stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    path =[path stringByReplacingOccurrencesOfString:@"\"" withString:@"%22"];
+    path =[path stringByReplacingOccurrencesOfString:@">" withString:@"%3E"];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
+    [manager GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        JWNoticeModel *officialAnnounce = [JsonPaser parserOfficialAnnounceByDictionary:dic];
+        callback(officialAnnounce);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        JWLog(@"获取公告数据失败");
+    }];
+}
+
 ////修改密码
 //+(void)requestChangedPasswordByChangedPassword:(NSString *)changedEPassword andCallback:(MyCallback)callback{
 //    

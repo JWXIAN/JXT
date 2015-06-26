@@ -39,8 +39,8 @@ typedef void  (^MyCallback)(id obj);
 //+(void)requestTeacherPeriodDateByComplaintList:(NSString *)teacherPeriodDate andCallback:(MyCallback)callback;
 ////学员考试明细
 //+(void)requsetStudentExamContentByStudentExamContent:(NSString *)studentExamContent andCallback:(MyCallback)callback;
-////官方公告
-//+(void)requestOfficialAnnounceByOfficialAnnounce:(NSString *)officialAnnounce andCallback:(MyCallback)callback;
+//官方公告
++(void)requestOfficialAnnounceByOfficialAnnounce:(NSString *)officialAnnounce andCallback:(MyCallback)callback;
 ////修改密码
 //+(void)requestChangedPasswordByChangedPassword:(NSString *)changedEPassword andCallback:(MyCallback)callback;
 ////修改手机号码
