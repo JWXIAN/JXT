@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class JWRecordHeadModel;
-@class JWRecordBodyModel;
+@class JWRecordAllModel;
 
 @interface JWRecordTVCell : UITableViewCell
 
@@ -28,7 +27,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbState;
 
 /** 预约信息的数据模型 */
-@property (nonatomic,strong)JWRecordHeadModel *bookRecord;
-@property (nonatomic,strong)JWRecordBodyModel *stuBookRecordInfo;
+@property (nonatomic, strong) JWRecordAllModel *ram;
+
+/** 提供一个类方法，可以快速创建 Cell */
++ (instancetype)cellWithTableView:(UITableView *)tableView;
 
 @end

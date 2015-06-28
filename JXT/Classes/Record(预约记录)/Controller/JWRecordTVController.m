@@ -8,12 +8,6 @@
 
 #import "JWRecordTVController.h"
 #import "DZNSegmentedControl.h"
-#import "JiaxiaotongAPI.h"
-#import "JWRecordBodyModel.h"
-#import "JWRecordHeadModel.h"
-#import "JWRecordTVCell.h"
-#import "PrefixHeader.pch"
-#import "MBProgressHUD+MJ.h"
 
 /**Segment define*/
 #define _allowAppearance    NO
@@ -27,7 +21,7 @@
 @property (nonatomic, strong) NSArray *menuItems;
 
 /**预约记录数据模型*/
-@property (nonatomic,strong)NSMutableArray *recordHeads;
+@property (nonatomic,strong)NSMutableArray *recordBodys;
 
 @end
 
@@ -36,40 +30,41 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [MBProgressHUD showMessage:@"正在加载预约信息..."];
+    
     //预约信息分组
     _menuItems = @[[@"全部" uppercaseString], [@"预约" uppercaseString], [@"培训" uppercaseString], [@"退约" uppercaseString]];
     self.tableView.tableHeaderView = self.control;
     self.tableView.tableFooterView = [UIView new];
     //预约数据显示
-    [self loadData];
-    [MBProgressHUD hideHUD];
+    [self loadRecord];
 }
 
-- (void)loadData
+/**加载预约信息*/
+- (void)loadRecord
 {
-    
-    self.recordHeads = [NSMutableArray array];
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    NSString *stuid = [ud objectForKey:@"stuID"];
-    [JiaxiaotongAPI requestBookRecordByBookRecord:stuid andCallback:^(id obj) {
-        JWRecordHeadModel *record = (JWRecordHeadModel *)obj;
-        self.recordHeads = record.recordHeads;
-    }];
-    [self.tableView reloadData];
-}
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    //    self.driveDatas = [NSMutableArray array];
+    //    //
+    //    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    //    NSString *uid = [ud objectForKey:@"driveID"];
+    //    [JiaxiaotongAPI requestDriveByDriveID:uid andCallback:^(id obj) {
+    //        Drive *drive = (Drive *)obj;
+    //        self.driveDatas = drive.driveDatas;
+    //        [self.tableView reloadData];
+    //        
+    //    }];
 }
 
 #pragma mark - UITableViewDataSource Methods
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
 /**返回cell数据行*/
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.recordHeads.count;
+    return 20;
 }
 
 
@@ -77,25 +72,26 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *ID = @"Cell";
-    JWRecordTVCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
     if (!cell) {
-        cell = [[[NSBundle mainBundle]loadNibNamed:@"JWRecordTVCell" owner:self options:nil]lastObject];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
         cell.textLabel.textColor = [UIColor darkGrayColor];
     }
     
-    cell.stuBookRecordInfo = self.recordHeads[indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ #%d", [[self.control titleForSegmentAtIndex:self.control.selectedSegmentIndex] capitalizedString], (int)indexPath.row+1];
+    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 110;
+    return 45.0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 1;
+    return 0.0;
 }
 
 
@@ -126,18 +122,8 @@
     //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSegment:)];
     
     //左侧刷新bar
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action: @selector(refreshSegments:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshSegments:)];
 }
-
-/**左侧刷新cell*/
-- (void)refreshSegments:(id)sender
-{
-    [self.control removeAllSegments];
-    
-    [self.control setItems:self.menuItems];
-    [self updateControlCounts];
-}
-
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -183,17 +169,23 @@
 //    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:newSegment];
 //}
 
+/**左侧刷新cell*/
+- (void)refreshSegments:(id)sender
+{
+    [self.control removeAllSegments];
+    
+    [self.control setItems:self.menuItems];
+    [self updateControlCounts];
+}
+
 /**顶部控制器统计*/
 - (void)updateControlCounts
 {
-//    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:0];
-//    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:1];
-//    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:2];
-//    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:3];
-    [self.control setCount:@(self.recordHeads.count) forSegmentAtIndex:0];
-    [self.control setCount:@(self.recordHeads.count) forSegmentAtIndex:1];
-    [self.control setCount:@(self.recordHeads.count) forSegmentAtIndex:2];
-    [self.control setCount:@(self.recordHeads.count) forSegmentAtIndex:3];
+    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:0];
+    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:1];
+    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:2];
+    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:3];
+    
     if (_allowAppearance) {
         [self.control setTitleColor:_hairlineColor forState:UIControlStateNormal];
     }

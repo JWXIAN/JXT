@@ -16,8 +16,6 @@
 #import "JWDLTVController.h"
 #import "JWProfileTVController.h"
 #import "MJExtension.h"
-#import "JWNoticeTVController.h"
-#import "JWProfileTVCell.h"
 
 @interface JWTarBarController ()
 @end
@@ -26,12 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    // 1.初始化子控制器
-//    JWNoticeTVController *home = [[JWNoticeTVController alloc] init];
-//    [self addChildVc:home title:@"首页" image:@"tabbar_home" selectedImage:nil];
-    
+    // 1.初始化子控制器
     JWHomeTVController *home = [[JWHomeTVController alloc] init];
-    [self addChildVc:home title:@"首页" image:@"tabbar_home" selectedImage:nil];
+    [self addChildVc:home title:@"我的信息" image:@"tabbar_profile" selectedImage:nil];
     
     JWVehicleTVController *messageCenter = [[JWVehicleTVController alloc] init];
     [self addChildVc:messageCenter title:@"车辆预约" image:@"tabbar_message_center" selectedImage:nil];
