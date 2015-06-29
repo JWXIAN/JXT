@@ -8,12 +8,6 @@
 
 #import "JWRecordTVController.h"
 #import "DZNSegmentedControl.h"
-#import "JiaxiaotongAPI.h"
-#import "JWRecordBodyModel.h"
-#import "JWRecordHeadModel.h"
-#import "JWRecordTVCell.h"
-#import "PrefixHeader.pch"
-#import "MBProgressHUD+MJ.h"
 
 /**Segment define*/
 #define _allowAppearance    NO
@@ -27,7 +21,7 @@
 @property (nonatomic, strong) NSArray *menuItems;
 
 /**预约记录数据模型*/
-@property (nonatomic,strong)NSMutableArray *recordHeads;
+@property (nonatomic,strong)NSMutableArray *recordBodys;
 
 @end
 
@@ -44,10 +38,17 @@
                    [@"退约" uppercaseString]];
     self.tableView.tableHeaderView = self.control;
     self.tableView.tableFooterView = [UIView new];
+<<<<<<< HEAD
+=======
+    //预约数据显示
+    [self loadRecord];
+>>>>>>> origin/master
 }
 
-- (void)loadData
+/**加载预约信息*/
+- (void)loadRecord
 {
+<<<<<<< HEAD
     [MBProgressHUD showMessage:@"正在加载预约信息..."];
     self.recordHeads = [NSMutableArray array];
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
@@ -62,6 +63,58 @@
         }
     }];
     
+=======
+    //    self.driveDatas = [NSMutableArray array];
+    //    //
+    //    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    //    NSString *uid = [ud objectForKey:@"driveID"];
+    //    [JiaxiaotongAPI requestDriveByDriveID:uid andCallback:^(id obj) {
+    //        Drive *drive = (Drive *)obj;
+    //        self.driveDatas = drive.driveDatas;
+    //        [self.tableView reloadData];
+    //        
+    //    }];
+}
+
+#pragma mark - UITableViewDataSource Methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+/**返回cell数据行*/
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 20;
+}
+
+
+#pragma mark - 数据源代理方法
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *ID = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell.textLabel.textColor = [UIColor darkGrayColor];
+    }
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ #%d", [[self.control titleForSegmentAtIndex:self.control.selectedSegmentIndex] capitalizedString], (int)indexPath.row+1];
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 45.0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.0;
+>>>>>>> origin/master
 }
 
 #pragma mark - Segment分组实现
@@ -92,18 +145,8 @@
     //预约数据显示
     [self loadData];
     //左侧刷新bar
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action: @selector(refreshSegments:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshSegments:)];
 }
-
-/**左侧刷新cell*/
-- (void)refreshSegments:(id)sender
-{
-    [self.control removeAllSegments];
-    
-    [self.control setItems:self.menuItems];
-    [self updateControlCounts];
-}
-
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -149,17 +192,23 @@
 //    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:newSegment];
 //}
 
+/**左侧刷新cell*/
+- (void)refreshSegments:(id)sender
+{
+    [self.control removeAllSegments];
+    
+    [self.control setItems:self.menuItems];
+    [self updateControlCounts];
+}
+
 /**顶部控制器统计*/
 - (void)updateControlCounts
 {
-//    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:0];
-//    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:1];
-//    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:2];
-//    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:3];
-    [self.control setCount:@(self.recordHeads.count) forSegmentAtIndex:0];
-    [self.control setCount:@(self.recordHeads.count) forSegmentAtIndex:1];
-    [self.control setCount:@(self.recordHeads.count) forSegmentAtIndex:2];
-    [self.control setCount:@(self.recordHeads.count) forSegmentAtIndex:3];
+    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:0];
+    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:1];
+    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:2];
+    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:3];
+    
     if (_allowAppearance) {
         [self.control setTitleColor:_hairlineColor forState:UIControlStateNormal];
     }

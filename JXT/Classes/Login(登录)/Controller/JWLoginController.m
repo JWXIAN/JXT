@@ -13,7 +13,6 @@
 #import "JWTarBarController.h"
 #import "JWLoginModel.h"
 #import "JiaxiaotongAPI.h"
-#import "JWNoticeTVController.h"
 
 @interface JWLoginController ()<UITextFieldDelegate>
 
@@ -98,39 +97,26 @@
     [ud synchronize];
     [JiaxiaotongAPI requsetStuLoginByStuLogin:nil andCallback:^(id obj) {
         self.studentLogin = (JWLoginModel *)obj;
-        //保存身份证号
+                //保存身份证号
         NSString *IDCardNum = self.studentLogin.per_idcardno;
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
         [ud setObject:IDCardNum forKey:@"per_idcardno"];
         [ud synchronize];
         JWLog(@"%@",self.studentLogin.issuccess);
-        
+            
         if ([self.studentLogin.issuccess isEqualToString:@"true"]) {
-            //隐藏蒙板
-            [MBProgressHUD hideHUD];
-            
-            //加载主界面
-            JWTarBarController *tb = [[JWTarBarController alloc] init];
-            [self presentViewController:tb animated:YES completion:nil];
-            [MBProgressHUD showSuccess:@"学员登录成功！祝您学车愉快！"];
-            
+        //隐藏蒙板
+        [MBProgressHUD hideHUD];
+        
+        //加载主界面
+        JWTarBarController *tb = [[JWTarBarController alloc] init];
+        [self presentViewController:tb animated:YES completion:nil];
+        [MBProgressHUD showSuccess:@"学员登录成功！祝您学车愉快！"];
+        
         }else if([self.studentLogin.issuccess isEqualToString:@"false"]) {
-            [MBProgressHUD showError:@"学员信息错误！"];
-        }
+        [MBProgressHUD showError:@"学员信息错误！"];
+    }
     }];
-}
-
-///**登录后将驾校id传给公告*/
-//- (void)loadNotice
-//{
-//    JWLoginController *stuLogin = [[JWLoginController alloc] init];
-//    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-//    [ud setObject:stuLogin.driveData forKey:@"drivecode"];
-//    [ud synchronize];
-//    NSLog(@"%@",stuLogin.driveData);
-//    
-//    JWNoticeTVController *tb = [[JWNoticeTVController alloc] init];
-//    tb.driveData = stuLogin.driveData;
-//}
+    }
 
 @end

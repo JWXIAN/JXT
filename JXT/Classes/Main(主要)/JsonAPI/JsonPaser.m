@@ -13,7 +13,6 @@
 #import "JWLoginModel.h"
 #import "JWRecordHeadModel.h"
 #import "JWRecordBodyModel.h"
-#import "JWNoticeModel.h"
 
 @implementation JsonPaser
 
@@ -47,7 +46,6 @@
 //    stu.yixueshi = [out_result objectForKey:@"out_yixueshi"];
 //    return stu;
 //}
-/**驾校列表*/
 +(JWDriveHeadModel *)parserDriveInfoByDictionary:(NSDictionary *)dic{
     JWDriveHeadModel *drive = [[JWDriveHeadModel alloc]init];
     
@@ -258,7 +256,7 @@
     bookRecord.statecode = [head objectForKey:@"statecode"];
     bookRecord.stateinfo = [head objectForKey:@"stateinfo"];
     NSArray *recordArr = [dic objectForKey:@"body"];
-    bookRecord.recordHeads = [NSMutableArray array];
+    bookRecord.recordBody = [NSMutableArray array];
     for (NSDictionary *recordDic in recordArr) {
         JWRecordBodyModel *recordInfo = [[JWRecordBodyModel alloc]init];
         recordInfo.per_name = [recordDic objectForKey:@"per_name"];
@@ -275,7 +273,7 @@
         recordInfo.t_yn = [recordDic objectForKey:@"t_yn"];
         recordInfo.jspy = [recordDic objectForKey:@"jspy"];
         recordInfo.pjzt = [recordDic objectForKey:@"pjzt"];
-        [bookRecord.recordHeads addObject:recordInfo];
+        [bookRecord.recordBody addObject:recordInfo];
    
         
     }
@@ -450,17 +448,17 @@
 //    
 //    return studentExamContent;
 //}
-//官方公告
-+(JWNoticeModel *)parserOfficialAnnounceByDictionary:(NSDictionary *)dic{
-    JWNoticeModel *notice = [[JWNoticeModel alloc]init];
-    NSDictionary *head = [dic objectForKey:@"head"];
-    notice.issuccess = [head objectForKey:@"issuccess"];
-    notice.statecode = [head objectForKey:@"statecode"];
-    notice.stateinfo = [head objectForKey:@"stateinfo"];
-    NSDictionary *body = [dic objectForKey:@"body"];
-    notice.result = [body objectForKey:@"result"];
-    return notice;
-}
+////官方公告
+//+(OfficialAnnounce *)parserOfficialAnnounceByDictionary:(NSDictionary *)dic{
+//    OfficialAnnounce *officialAnnounce = [[OfficialAnnounce alloc]init];
+//    NSDictionary *head = [dic objectForKey:@"head"];
+//    officialAnnounce.issuccess = [head objectForKey:@"issuccess"];
+//    officialAnnounce.statecode = [head objectForKey:@"statecode"];
+//    officialAnnounce.stateinfo = [head objectForKey:@"stateinfo"];
+//    NSDictionary *body = [dic objectForKey:@"body"];
+//    officialAnnounce.result = [body objectForKey:@"result"];
+//    return officialAnnounce;
+//}
 //
 ////联动时段列表
 //+(DynamicPeriodList *)parserDynamicPeriodListByDictionary:(NSDictionary *)dic{
