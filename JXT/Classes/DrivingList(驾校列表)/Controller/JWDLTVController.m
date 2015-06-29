@@ -30,13 +30,13 @@
     self.tableView.rowHeight = 110;
     self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
     [self loadData];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 - (void)loadData
 {
     self.driveHeads = [NSMutableArray array];
@@ -44,8 +44,10 @@
     NSString *uid = [ud objectForKey:@"driveID"];
     [JiaxiaotongAPI requestDriveByDriveID:uid andCallback:^(id obj) {
         JWDriveHeadModel *drive = (JWDriveHeadModel *)obj;
-        self.driveHeads = drive.driveHeads;
-        [self.tableView reloadData];
+        if (drive != nil) {
+            self.driveHeads = drive.driveHeads;
+            [self.tableView reloadData];
+        }
     }];
     
 }

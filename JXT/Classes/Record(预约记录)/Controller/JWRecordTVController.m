@@ -36,68 +36,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [MBProgressHUD showMessage:@"正在加载预约信息..."];
+    
     //预约信息分组
-    _menuItems = @[[@"全部" uppercaseString], [@"预约" uppercaseString], [@"培训" uppercaseString], [@"退约" uppercaseString]];
+    _menuItems = @[[@"全部" uppercaseString],
+                   [@"预约" uppercaseString],
+                   [@"培训" uppercaseString],
+                   [@"退约" uppercaseString]];
     self.tableView.tableHeaderView = self.control;
     self.tableView.tableFooterView = [UIView new];
-    //预约数据显示
-    [self loadData];
-    [MBProgressHUD hideHUD];
 }
 
 - (void)loadData
 {
-    
+    [MBProgressHUD showMessage:@"正在加载预约信息..."];
     self.recordHeads = [NSMutableArray array];
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSString *stuid = [ud objectForKey:@"stuID"];
     [JiaxiaotongAPI requestBookRecordByBookRecord:stuid andCallback:^(id obj) {
         JWRecordHeadModel *record = (JWRecordHeadModel *)obj;
-        self.recordHeads = record.recordHeads;
+        if (record != nil) {
+            self.recordHeads = record.recordHeads;
+            [self.tableView reloadData];
+            [self updateControlCounts];
+            [MBProgressHUD hideHUD];
+        }
     }];
-    [self.tableView reloadData];
-}
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-#pragma mark - UITableViewDataSource Methods
-
-/**返回cell数据行*/
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.recordHeads.count;
-}
-
-
-#pragma mark - 数据源代理方法
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *ID = @"Cell";
-    JWRecordTVCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
-    if (!cell) {
-        cell = [[[NSBundle mainBundle]loadNibNamed:@"JWRecordTVCell" owner:self options:nil]lastObject];
-        cell.textLabel.textColor = [UIColor darkGrayColor];
-    }
-    
-    cell.stuBookRecordInfo = self.recordHeads[indexPath.row];
-    return cell;
 }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 110;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 1;
-}
-
 
 #pragma mark - Segment分组实现
 /**顶部Segment*/
@@ -124,7 +89,8 @@
     [super loadView];
     //    //右侧添加bar
     //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSegment:)];
-    
+    //预约数据显示
+    [self loadData];
     //左侧刷新bar
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action: @selector(refreshSegments:)];
 }
@@ -210,6 +176,46 @@
 - (UIBarPosition)positionForBar:(id <UIBarPositioning>)view
 {
     return UIBarPositionBottom;
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+#pragma mark - UITableViewDataSource Methods
+
+/**返回cell数据行*/
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.recordHeads.count;
+}
+
+
+#pragma mark - 数据源代理方法
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *ID = @"Cell";
+    JWRecordTVCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    
+    if (!cell) {
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"JWRecordTVCell" owner:self options:nil]lastObject];
+        cell.textLabel.textColor = [UIColor darkGrayColor];
+    }
+    
+    cell.stuBookRecordInfo = self.recordHeads[indexPath.row];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 110;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 1;
 }
 
 @end

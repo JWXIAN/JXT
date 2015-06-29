@@ -637,7 +637,6 @@
     
     [button addTarget:self action:@selector(willSelectedButton:) forControlEvents:UIControlEventTouchDown];
     [button addTarget:self action:@selector(didSelectButton:) forControlEvents:UIControlEventTouchDragOutside|UIControlEventTouchDragInside|UIControlEventTouchDragEnter|UIControlEventTouchDragExit|UIControlEventTouchCancel|UIControlEventTouchUpInside|UIControlEventTouchUpOutside];
-    
     button.backgroundColor = nil;
     button.opaque = YES;
     button.clipsToBounds = YES;

@@ -14,10 +14,10 @@
 #import "JWNavController.h"
 #import "PrefixHeader.pch"
 #import "JWDLTVController.h"
-#import "JWProfileTVController.h"
 #import "MJExtension.h"
 #import "JWNoticeTVController.h"
-#import "JWProfileTVCell.h"
+#import "JWSettingTVController.h"
+#import "JWProfileController.h"
 
 @interface JWTarBarController ()
 @end
@@ -30,17 +30,17 @@
 //    JWNoticeTVController *home = [[JWNoticeTVController alloc] init];
 //    [self addChildVc:home title:@"首页" image:@"tabbar_home" selectedImage:nil];
     
-    JWHomeTVController *home = [[JWHomeTVController alloc] init];
-    [self addChildVc:home title:@"首页" image:@"tabbar_home" selectedImage:nil];
+    JWProfileController *home = [[JWProfileController alloc] init];
+    [self addChildVc:home title:@"我的信息" image:@"xinxi" selectedImage:@"xinxi-on"];
     
     JWVehicleTVController *messageCenter = [[JWVehicleTVController alloc] init];
-    [self addChildVc:messageCenter title:@"车辆预约" image:@"tabbar_message_center" selectedImage:nil];
+    [self addChildVc:messageCenter title:@"车辆预约" image:@"yuyue" selectedImage:@"yuyue-on"];
     
     JWRecordTVController *discover = [[JWRecordTVController alloc] init];
-    [self addChildVc:discover title:@"预约记录" image:@"tabbar_discover" selectedImage:nil];
+    [self addChildVc:discover title:@"预约记录" image:@"jilu" selectedImage:@"jilu-on"];
     
-    JWProfileTVController *setting = [[JWProfileTVController alloc] init];
-    [self addChildVc:setting title:@"设置" image:@"tabbar_home" selectedImage:nil];
+    JWSettingTVController *setting = [[JWSettingTVController alloc] init];
+    [self addChildVc:setting title:@"设置" image:@"shezhi" selectedImage:@"shezhi-on"];
     
 //    JWDLTVController *drive = [[JWDLTVController alloc] init];
 //    [self addChildVc:drive title:@"驾校列表" image:@"tabbar_profile" selectedImage:@
@@ -85,15 +85,14 @@
     // 设置子控制器的文字
     childVc.title = title; // 同时设置tabbar和navigationBar的文字
     
-    // 设置子控制器的图片
+    // 设置子控制器的图片JWColor(36, 107, 246)
     childVc.tabBarItem.image = [UIImage imageNamed:image];
     childVc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
     // 设置文字的样式
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = JWColor(123, 123, 123);
     NSMutableDictionary *selectTextAttrs = [NSMutableDictionary dictionary];
-    selectTextAttrs[NSForegroundColorAttributeName] = JWColor(36, 107, 246);
+    selectTextAttrs[NSForegroundColorAttributeName] = JWColor(67, 153, 213);
     [childVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     [childVc.tabBarItem setTitleTextAttributes:selectTextAttrs forState:UIControlStateSelected];
     

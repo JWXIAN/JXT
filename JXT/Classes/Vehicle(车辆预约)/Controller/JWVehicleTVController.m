@@ -10,6 +10,7 @@
 #import "JWTableViewControllerTest.h"
 #import "DZNSegmentedControl.h"
 #import "JWVehicleGroupModel.h"
+#import "PrefixHeader.pch"
 
 #define _allowAppearance    NO
 #define _bakgroundColor     [UIColor colorWithRed:0/255.0 green:87/255.0 blue:173/255.0 alpha:1.0]
@@ -40,8 +41,6 @@
     if (!_allowAppearance) {
         return;
     }
-    
-    [[DZNSegmentedControl appearance] setBackgroundColor:_bakgroundColor];
     [[DZNSegmentedControl appearance] setTintColor:_tintColor];
     [[DZNSegmentedControl appearance] setHairlineColor:_hairlineColor];
     
@@ -62,8 +61,27 @@
 //  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addSegment:)];
     
     //刷新
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshSegments:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshSegment:)];
 }
+
+///**右侧添加cell*/
+//- (void)addSegment:(id)sender
+//{
+//    NSUInteger newSegment = self.control.numberOfSegments;
+//
+//    [self.control setTitle:[@"JWX" uppercaseString] forSegmentAtIndex:self.control.numberOfSegments];
+//    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:newSegment];
+//}
+
+/**左侧刷新cell*/
+- (void)refreshSegment:(id)sender
+{
+    [self.control removeAllSegments];
+    
+    [self.control setItems:self.menuItems];
+    [self updateControlCounts];
+}
+
 
 - (void)viewDidLoad
 {
@@ -151,23 +169,6 @@
 
 #pragma mark - ViewController Methods
 
-///**右侧添加cell*/
-//- (void)addSegment:(id)sender
-//{
-//    NSUInteger newSegment = self.control.numberOfSegments;
-//    
-//    [self.control setTitle:[@"JWX" uppercaseString] forSegmentAtIndex:self.control.numberOfSegments];
-//    [self.control setCount:@((arc4random()%10000)) forSegmentAtIndex:newSegment];
-//}
-
-///**左侧刷新cell*/
-//- (void)refreshSegments:(id)sender
-//{
-//    [self.control removeAllSegments];
-//    
-//    [self.control setItems:self.menuItems];
-//    [self updateControlCounts];
-//}
 
 /**顶部控制器统计*/
 - (void)updateControlCounts

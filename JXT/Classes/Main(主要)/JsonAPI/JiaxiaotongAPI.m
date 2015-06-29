@@ -69,9 +69,14 @@
     [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
     [manager GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        JWDriveHeadModel *drive = [JsonPaser parserDriveInfoByDictionary:dic];
-        callback(drive);
+        [MBProgressHUD showMessage:@"正在加载驾校信息..."];
+        if (dic != nil) {
+            JWDriveHeadModel *drive = [JsonPaser parserDriveInfoByDictionary:dic];
+            callback(drive);
+            [MBProgressHUD hideHUD];
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
     }];
 }
 ////教练信息
@@ -185,7 +190,7 @@
     
     [manager GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        JWLog(@"%@",dic);
+//        JWLog(@"%@",dic);
         JWRecordHeadModel *bookRecord = [JsonPaser parserBookRecordByDictionary:dic];
         callback(bookRecord);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
